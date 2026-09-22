@@ -1,4 +1,5 @@
 ---
+draft: false
 title: 'Lawrence A. LeBrocq, Esq.'
 jobTitle: 'CEO, Managing Partner'
 image: 'https://pagesmith-cdn.com/20632c09/images/Partners_2025-scaled-e1749740637683-1536-b54697-1536.webp'
