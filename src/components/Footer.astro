@@ -1,5 +1,7 @@
 ---
   // Footer component - shared across all pages
+  import { getCollection } from 'astro:content';
+  const services = (await getCollection('services', ({data}) => !data.draft)).sort((a,b) => a.data.order - b.data.order);
   import Container from '@/components/Container.astro';
   import { SITE } from '@/config/site';
 
@@ -34,9 +36,7 @@
         <div data-ps="src/components/Footer.astro:p4vf8a">
           <h2 class="text-xs font-bold font-display uppercase tracking-widest text-primary mb-4" data-ps="src/components/Footer.astro:f0091e">Analysis Vectors</h2>
           <ul class="list-none p-0 m-0 flex flex-col gap-3">
-            <li data-ps="src/components/Footer.astro:wyji7c"><a href="/jackknife-accidents" class="text-[11px] font-mono uppercase tracking-wider text-dark-muted no-underline hover:text-foreground transition-colors" data-ps="src/components/Footer.astro:7gqc0i">Jackknife Dynamics</a></li>
-            <li data-ps="src/components/Footer.astro:wyji7d"><a href="/underride-collisions" class="text-[11px] font-mono uppercase tracking-wider text-dark-muted no-underline hover:text-foreground transition-colors" data-ps="src/components/Footer.astro:7gqc0j">Underride Impacts</a></li>
-            <li data-ps="src/components/Footer.astro:wyji7e"><a href="/hos-violations" class="text-[11px] font-mono uppercase tracking-wider text-dark-muted no-underline hover:text-foreground transition-colors" data-ps="src/components/Footer.astro:7gqc0k">HOS Exploitation</a></li>
+            {services.map(service => (<li><a href={`/${service.id}/`} class="text-[11px] font-mono uppercase tracking-wider text-dark-muted no-underline hover:text-foreground transition-colors">{service.data.title}</a></li>))}
             <li data-ps="src/components/Footer.astro:wyji7f"><a href="/federal-regulations" class="text-[11px] font-mono uppercase tracking-wider text-dark-muted no-underline hover:text-foreground transition-colors" data-ps="src/components/Footer.astro:7gqc0l">Federal Regulations</a></li>
             <li data-ps="src/components/Footer.astro:wyji7g"><a href="/verdicts" class="text-[11px] font-mono uppercase tracking-wider text-dark-muted no-underline hover:text-foreground transition-colors" data-ps="src/components/Footer.astro:7gqc0m">Verdicts & Outcomes</a></li>
             <li data-ps="src/components/Footer.astro:cs-link"><a href="/case-studies" class="text-[11px] font-mono uppercase tracking-wider text-dark-muted no-underline hover:text-foreground transition-colors" data-ps="src/components/Footer.astro:7gqc0cs">Case Studies</a></li>
