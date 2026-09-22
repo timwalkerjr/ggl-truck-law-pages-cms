@@ -1,0 +1,147 @@
+---
+import { SITE } from '@/config/site';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Container from '@/components/Container.astro';
+
+const caseStudies = [
+  {
+    id: 'CS-482-NJ',
+    title: 'The Midnight Jackknife: Falsified Logs Exposed',
+    outcome: '$4.8 Million Settlement',
+    location: 'NJ Turnpike / Exit 9',
+    challenge: 'The carrier claimed the jackknife was an unavoidable "Act of God" due to sudden black ice. The driver denied fatigue.',
+    analysis: 'Our team subpoenaed the ELD (Electronic Logging Device) metadata and compared it with cellular tower handshakes and toll booth timestamps. We identified a 14-hour discrepancy in the driver\'s reported rest period.',
+    result: 'The discovery of intentional HOS (Hours of Service) violations triggered a massive liability shift. The carrier settled within 48 hours of our forensic filing.',
+    image: 'https://images.pexels.com/photos/10481252/pexels-photo-10481252.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    tags: ['HOS Violation', 'ELD Forensic', 'Fatigue']
+  },
+  {
+    id: 'CS-221-MX',
+    title: 'Underride Impact: Maintenance Negligence',
+    outcome: '$2.2 Million Jury Verdict',
+    location: 'Route 18 / Middlesex',
+    challenge: 'A passenger vehicle struck the rear of a flatbed. The defense argued the passenger car was speeding and solely responsible.',
+    analysis: 'Investigation of the trailer revealed that the rear underride guard (Mansfield Bar) was severely corroded and had been improperly repaired with non-structural welds two years prior.',
+    result: 'We proved that the guard failed to meet federal safety standards (FMVSS 223/224). The jury found the carrier 85% liable for the resulting fatalities due to equipment failure.',
+    image: 'https://images.pexels.com/photos/7019365/pexels-photo-7019365.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    tags: ['Underride', 'Equipment Failure', 'Maintenance Audit']
+  },
+  {
+    id: 'CS-359-I287',
+    title: 'Data Integrity Breach: The "Ghost" Driver',
+    outcome: '$3.5 Million Global Settlement',
+    location: 'Interstate 287',
+    challenge: 'Multiple vehicles involved in a pile-up. The primary tractor-trailer appeared to have no mechanical faults and the driver was within HOS limits.',
+    analysis: 'Digital reconstruction of the truck\'s ECM (Engine Control Module) showed the vehicle was in motion while the ELD recorded a "Sleeper Berth" status. We uncovered a secondary mobile device used to bypass the ELD system.',
+    result: 'Exposing the systemic culture of "Ghost Driving" within the carrier organization led to a global settlement for all three affected families.',
+    image: 'https://images.pexels.com/photos/7841478/pexels-photo-7841478.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    tags: ['ECM Analysis', 'Systemic Negligence', 'Data Tampering']
+  }
+];
+---
+
+<BaseLayout
+  title={`Detailed Case Studies | ${SITE.name}`}
+  description="In-depth forensic analysis of high-stakes truck accident litigation. Deconstructing the victories that define our practice."
+  jsonLd={{
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: 'Detailed Case Studies - Garces, Grabler & LeBrocq',
+    description: 'Deconstructing our most significant truck accident litigation victories through forensic evidence and digital analysis.',
+    url: `${SITE.url}/case-studies`
+  }}
+>
+  <!-- Hero Section -->
+  <section class="relative py-24 md:py-36 bg-dark-background overflow-hidden" data-ps="src/pages/case-studies.astro:cao39">
+    <div class="absolute inset-0 opacity-10" data-ps="src/pages/case-studies.astro:j85k2t">
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--color-primary)_0%,_transparent_70%)]" data-ps="src/pages/case-studies.astro:j85k2u"></div>
+    </div>
+    <Container class="relative z-10">
+      <div class="max-w-4xl" data-ps="src/pages/case-studies.astro:j85k2v">
+        <div class="hero-animate inline-block px-3 py-1 border-l-2 border-primary text-[10px] font-mono font-bold tracking-[0.3em] text-primary uppercase mb-6" data-ps="src/pages/case-studies.astro:j85k2w">
+          Litigation Archive / Case Files
+        </div>
+        <h1 class="hero-animate hero-animate-delay-1 text-h1 font-black mb-8 leading-none italic" data-ps="src/pages/case-studies.astro:cbhps3">
+          DECONSTRUCTING <span class="text-primary block not-italic" data-ps="src/pages/case-studies.astro:jd10e8">THE VICTORY.</span>
+        </h1>
+        <p class="hero-animate hero-animate-delay-2 text-xl md:text-2xl text-muted-foreground leading-relaxed max-w-2xl" data-ps="src/pages/case-studies.astro:4ltqi2">
+          Numbers on a list are just data. These case studies provide the clinical narrative of how we dismantle commercial trucking defenses through forensic evidence and unyielding pressure.
+        </p>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Case Studies Grid -->
+  <section class="py-24 bg-background" data-ps="src/pages/case-studies.astro:cao3a">
+    <Container>
+      <div class="space-y-32" data-ps="src/pages/case-studies.astro:j85k2x">
+        {caseStudies.map((study, index) => (
+          <div class={`flex flex-col ${index % 2 === 1 ? 'md:flex-row-reverse' : 'md:flex-row'} gap-12 items-start`} data-ps="case-study-item">
+            <!-- Image Column -->
+            <div class="w-full md:w-1/2 group" data-ps={`src/pages/case-studies.astro:j85k2y-${index}`}>
+              <div class="relative overflow-hidden border border-border bg-surface aspect-video" data-ps={`src/pages/case-studies.astro:j85k2z-${index}`}>
+                <div class="absolute top-0 left-0 z-20 p-4" data-ps={`src/pages/case-studies.astro:j85k30-${index}`}>
+                  <span class="px-2 py-1 bg-primary text-primary-foreground text-[10px] font-mono font-bold uppercase tracking-widest" data-ps={`src/pages/case-studies.astro:jd10e9-${index}`}>{study.id}</span>
+                </div>
+                <img 
+                  src={study.image} 
+                  alt={study.title}
+                  class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100" data-ps={`src/pages/case-studies.astro:gpwfqo-${index}`} />
+                <div class="absolute inset-0 bg-gradient-to-t from-dark-background/80 to-transparent opacity-60" data-ps={`src/pages/case-studies.astro:j85k31-${index}`}></div>
+              </div>
+              <div class="mt-4 flex flex-wrap gap-2" data-ps={`src/pages/case-studies.astro:iy86yj-${index}`}>
+                {study.tags.map(tag => (
+                  <span class="text-[9px] font-mono text-muted-foreground border border-border px-2 py-1 uppercase tracking-tighter" data-ps={`src/pages/case-studies.astro:jd10ea-${index}`}># {tag}</span>
+                ))}
+              </div>
+            </div>
+
+            <!-- Content Column -->
+            <div class="w-full md:w-1/2" data-ps={`src/pages/case-studies.astro:iy86yk-${index}`}>
+              <div class="text-[10px] font-mono text-primary font-bold uppercase tracking-[0.2em] mb-4" data-ps={`src/pages/case-studies.astro:iy86yl-${index}`}>{study.location}</div>
+              <h2 class="text-3xl md:text-4xl font-black font-display mb-2 leading-none" data-ps={`src/pages/case-studies.astro:2cx7fj-${index}`}>{study.title}</h2>
+              <div class="text-xl font-black font-display text-success mb-8 uppercase tracking-tight" data-ps={`src/pages/case-studies.astro:iy86ym-${index}`}>{study.outcome}</div>
+              
+              <div class="space-y-8" data-ps={`src/pages/case-studies.astro:iy86yn-${index}`}>
+                <div data-ps={`src/pages/case-studies.astro:iy86yo-${index}`}>
+                  <h3 class="text-[11px] font-mono font-bold text-foreground uppercase tracking-widest mb-3 border-b border-border pb-1 inline-block" data-ps={`src/pages/case-studies.astro:h1c4n6-${index}`}>The Defense Narrative</h3>
+                  <p class="text-muted-foreground text-sm leading-relaxed italic" data-ps={`src/pages/case-studies.astro:4ltqi3-${index}`}>"{study.challenge}"</p>
+                </div>
+                
+                <div data-ps={`src/pages/case-studies.astro:iy86yp-${index}`}>
+                  <h3 class="text-[11px] font-mono font-bold text-foreground uppercase tracking-widest mb-3 border-b border-border pb-1 inline-block" data-ps={`src/pages/case-studies.astro:h1c4n5-${index}`}>Forensic Analysis</h3>
+                  <p class="text-foreground text-sm leading-relaxed" data-ps={`src/pages/case-studies.astro:4ltqi4-${index}`}>{study.analysis}</p>
+                </div>
+                
+                <div data-ps={`src/pages/case-studies.astro:iy86yq-${index}`}>
+                  <h3 class="text-[11px] font-mono font-bold text-foreground uppercase tracking-widest mb-3 border-b border-border pb-1 inline-block" data-ps={`src/pages/case-studies.astro:h1c4n4-${index}`}>Litigation Result</h3>
+                  <p class="text-foreground text-sm leading-relaxed" data-ps={`src/pages/case-studies.astro:4ltqi5-${index}`}>{study.result}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </Container>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-24 border-t border-border bg-dark-background" data-ps="src/pages/case-studies.astro:cao3w">
+    <Container>
+      <div class="max-w-4xl mx-auto text-center" data-ps="src/pages/case-studies.astro:iy86yr">
+        <h2 class="text-h2 font-black mb-8 leading-none" data-ps="src/pages/case-studies.astro:2cx7fi">YOUR CASE REQUIRES <span class="text-primary italic" data-ps="src/pages/case-studies.astro:jd10eb">CRITICAL ANALYSIS.</span></h2>
+        <p class="text-xl text-muted-foreground mb-12 max-w-2xl mx-auto" data-ps="src/pages/case-studies.astro:4ltqir">
+          Don't settle for a generalist. Put our forensic litigation experience to work on your commercial vehicle accident claim.
+        </p>
+        <div class="flex flex-col sm:flex-row justify-center gap-6" data-ps="src/pages/case-studies.astro:iy86ys">
+          <a href="/#contact" class="px-8 py-4 bg-primary text-primary-foreground text-sm font-black font-display uppercase tracking-widest hover:bg-primary-hover transition-all hover-lift" data-ps="src/pages/case-studies.astro:bprn7q">
+            Request Case Evaluation
+          </a>
+          <a href="/verdicts" class="px-8 py-4 border-2 border-border text-foreground text-sm font-black font-display uppercase tracking-widest hover:border-primary transition-all" data-ps="src/pages/case-studies.astro:bprn7r">
+            Browse Full Verdict Library
+          </a>
+        </div>
+      </div>
+    </Container>
+  </section>
+</BaseLayout>

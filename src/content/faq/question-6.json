@@ -1,0 +1,6 @@
+{
+  "title": "How do ELD logs reveal driver fatigue?",
+  "answer": "Electronic Logging Devices (ELD) track driving hours automatically. We audit these logs for HOS (Hours of Service) violations, looking for unauthorized \"personal conveyance\" time or \"off-duty\" status while the vehicle was in motion—key indicators of fatigued driving.",
+  "order": 6,
+  "draft": false
+}

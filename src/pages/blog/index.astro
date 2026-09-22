@@ -1,0 +1,59 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Container from '@/components/Container.astro';
+
+const blogPosts = await getCollection('blog', ({ data }) => {
+  return data.draft !== true;
+});
+
+const sortedPosts = blogPosts.sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+---
+
+<BaseLayout 
+  title="Trucking Litigation Intel | Garces, Grabler & LeBrocq"
+  description="Detailed analysis of FMCSA protocols, black-box physics, and federal carrier litigation strategies from the Garces, Grabler & LeBrocq intelligence team."
+>
+  <main class="py-20 md:py-32" data-ps="src/pages/blog/index.astro:27rgmj">
+    <Container>
+      <div class="max-w-4xl mb-16" data-ps="src/pages/blog/index.astro:z9lr8l">
+        <div class="inline-block px-3 py-1 border-l-2 border-primary text-[10px] font-mono font-bold tracking-[0.3em] text-primary uppercase mb-6" data-ps="src/pages/blog/index.astro:z9lr8m">
+          Intelligence Archive
+        </div>
+        <h1 class="text-h1 font-black mb-8" data-ps="src/pages/blog/index.astro:iw50fd">TRUCKING <span class="text-primary" data-ps="src/pages/blog/index.astro:pg71q6">LITIGATION INTEL</span></h1>
+        <p class="text-xl text-muted-foreground" data-ps="src/pages/blog/index.astro:60ko9x">Detailed analysis of FMCSA protocols, black-box physics, and federal carrier litigation strategies.</p>
+      </div>
+
+      <div class="grid gap-12" data-ps="src/pages/blog/index.astro:z9lr8n">
+        {sortedPosts.map((post, __psIdx) => (
+          <article class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center bg-surface border border-border group hover:border-primary transition-colors overflow-hidden" data-ps={`src/pages/blog/index.astro:joklk6-${__psIdx}`}>
+            {post.data.image && (
+              <div class="md:col-span-5 aspect-video md:aspect-square overflow-hidden border-b md:border-b-0 md:border-r border-border" data-ps={`src/pages/blog/index.astro:z9lr8o-${__psIdx}`}>
+                <img 
+                  src={post.data.image} 
+                  alt={post.data.title} 
+                  class="h-full w-full object-cover grayscale brightness-75 group-hover:grayscale-0 transition-all duration-500"
+                  crossorigin="anonymous" data-ps={`src/pages/blog/index.astro:5ecsla-${__psIdx}`} />
+              </div>
+            )}
+            <div class="md:col-span-7 p-8 md:p-12" data-ps={`src/pages/blog/index.astro:z9lr8p-${__psIdx}`}>
+              <time class="text-[10px] font-mono text-muted-foreground mb-4 block uppercase tracking-widest">
+                {post.data.pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+              </time>
+              <h2 class="text-3xl font-black font-display text-foreground mb-4 group-hover:text-primary transition-colors leading-none" data-ps={`src/pages/blog/index.astro:if3dag-${__psIdx}`}>
+                <a href={`/blog/${post.id}`} class="no-underline text-inherit" data-ps={`src/pages/blog/index.astro:d4ikzo-${__psIdx}`}>{post.data.title}</a>
+              </h2>
+              <p class="text-muted-foreground text-lg mb-8" data-ps={`src/pages/blog/index.astro:60ko9y-${__psIdx}`}>{post.data.description}</p>
+              <a href={`/blog/${post.id}`} class="inline-flex items-center gap-4 text-primary font-black font-display uppercase tracking-widest hover:gap-6 transition-all" data-ps={`src/pages/blog/index.astro:d4ikzp-${__psIdx}`}>
+                Access Intelligence Report
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </Container>
+  </main>
+</BaseLayout>

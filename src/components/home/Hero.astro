@@ -1,0 +1,81 @@
+---
+import Container from '@/components/Container.astro';
+import { SITE } from '@/config/site';
+---
+
+<section class="relative isolate overflow-hidden bg-background -mt-[var(--nav-height)] pt-[var(--nav-height)] min-h-screen flex items-center" data-ps="src/components/home/Hero.astro:c630g">
+  <Container class="py-20 md:py-32">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center" data-ps="src/components/home/Hero.astro:iy4t9j">
+      <!-- Text Column (7/12) -->
+      <div class="lg:col-span-7 relative z-10 text-left" data-ps="src/components/home/Hero.astro:iy4t9k">
+        <div class="hero-animate inline-flex items-center gap-3 px-3 py-1 bg-surface border border-primary/30 mb-8" data-ps="src/components/home/Hero.astro:iy4t9l">
+          <span class="flex h-2 w-2 rounded-full bg-primary animate-pulse" data-ps="src/components/home/Hero.astro:z1i1xh"></span>
+          <span class="text-[10px] font-mono font-bold tracking-[0.2em] text-primary uppercase" data-ps="src/components/home/Hero.astro:z1i1xg">Federal FMCSA & Commercial Truck Litigation Specialists</span>
+        </div>
+        
+        <h1 class="hero-animate hero-animate-delay-1 text-h1 font-black mb-8 text-foreground max-w-4xl uppercase" data-ps="src/components/home/Hero.astro:p3vdzl">
+          {SITE.location.city} <span class="text-primary" data-ps="src/components/home/Hero.astro:z1i1xf">TRUCK ACCIDENT</span> LAWYERS.
+        </h1>
+        
+        <p class="hero-animate hero-animate-delay-2 text-lg md:text-xl mb-12 max-w-2xl text-muted-foreground leading-tight" data-ps="src/components/home/Hero.astro:ijv6zc">
+          If you've been injured in a semi-truck crash or commercial vehicle collision, corporate carriers are already building their defense. Our {SITE.location.city} 18-wheeler accident attorneys deploy forensic telematics and federal litigation to win high-stakes trials.
+        </p>
+        
+        <div class="hero-animate hero-animate-delay-3 flex flex-wrap gap-4" data-ps="src/components/home/Hero.astro:iy4t9m">
+          <a href="#contact" class="px-10 py-5 bg-primary text-primary-foreground font-black font-display uppercase tracking-widest hover:bg-primary-hover transition-all hover-lift text-lg" data-ps="src/components/home/Hero.astro:8zc1t">
+            Free Case Consultation
+          </a>
+          <a href="/litigation-process" class="px-10 py-5 border-2 border-border text-foreground font-black font-display uppercase tracking-widest hover:bg-surface transition-all hover-lift text-lg" data-ps="src/components/home/Hero.astro:8zc1u">
+            Litigation Process
+          </a>
+        </div>
+        
+        <div class="hero-animate hero-animate-delay-4 mt-16 grid grid-cols-3 gap-8 pt-8 border-t border-border max-w-xl" data-ps="src/components/home/Hero.astro:iy4ta8">
+          <div data-ps="src/components/home/Hero.astro:iy4ta9">
+            <div class="text-2xl font-black font-display text-foreground uppercase" data-ps="src/components/home/Hero.astro:iy4taa">{SITE.location.state}</div>
+            <div class="text-[10px] font-mono tracking-widest text-muted-foreground uppercase mt-1" data-ps="src/components/home/Hero.astro:iy4tab">Jurisdiction</div>
+          </div>
+          <div data-ps="src/components/home/Hero.astro:iy4tac">
+            <div class="text-2xl font-black font-display text-foreground uppercase" data-ps="src/components/home/Hero.astro:iy4tad">{SITE.location.county}</div>
+            <div class="text-[10px] font-mono tracking-widest text-muted-foreground uppercase mt-1" data-ps="src/components/home/Hero.astro:iy4tae">Courts</div>
+          </div>
+          <div data-ps="src/components/home/Hero.astro:iy4taf">
+            <div class="text-2xl font-black font-display text-foreground" data-ps="src/components/home/Hero.astro:iy4tag">24/7</div>
+            <div class="text-[10px] font-mono tracking-widest text-muted-foreground uppercase mt-1" data-ps="src/components/home/Hero.astro:iy4tah">Rapid Response</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Poster Column (5/12) -->
+      <div class="lg:col-span-5 relative" data-ps="src/components/home/Hero.astro:ecxgf3">
+        <div class="reveal-scale aspect-[4/5] overflow-hidden border-2 border-border relative" data-ps="src/components/home/Hero.astro:ecxgf4">
+          <img 
+            src="https://pagesmith-cdn.com/20632c09/images/josiah-farrow-ucuOscdCaO4-unsplash-1536-155c0a-1536.webp" 
+            srcset="https://pagesmith-cdn.com/20632c09/images/josiah-farrow-ucuOscdCaO4-unsplash-1536-155c0a-320.webp 320w, https://pagesmith-cdn.com/20632c09/images/josiah-farrow-ucuOscdCaO4-unsplash-1536-155c0a-640.webp 640w, https://pagesmith-cdn.com/20632c09/images/josiah-farrow-ucuOscdCaO4-unsplash-1536-155c0a-768.webp 768w, https://pagesmith-cdn.com/20632c09/images/josiah-farrow-ucuOscdCaO4-unsplash-1536-155c0a-1024.webp 1024w, https://pagesmith-cdn.com/20632c09/images/josiah-farrow-ucuOscdCaO4-unsplash-1536-155c0a-1536.webp 1536w"
+            sizes="(max-width: 1024px) 100vw, 40vw"
+            alt="Commercial semi-truck driving on highway at dusk seen from vehicle perspective" 
+            class="h-full w-full object-cover"
+            loading="eager"
+            fetchpriority="high" data-ps="src/components/home/Hero.astro:gfvoy2" />
+          <!-- Industrial overlay elements -->
+          <div class="absolute top-4 right-4 px-3 py-1 bg-primary text-primary-foreground font-mono text-[10px] font-bold tracking-tighter uppercase" data-ps="src/components/home/Hero.astro:ecxgf5">
+            EXHIBIT A: PHYSICAL MASS
+          </div>
+          <div class="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-black/80 to-transparent" data-ps="src/components/home/Hero.astro:ecxgf6">
+            <div class="flex items-end justify-between" data-ps="src/components/home/Hero.astro:ecxgf7">
+              <div data-ps="src/components/home/Hero.astro:ecxgf8">
+                <div class="text-4xl font-black font-display text-white" data-ps="src/components/home/Hero.astro:ecxgf9">80,000</div>
+                <div class="text-xs font-mono text-primary uppercase" data-ps="src/components/home/Hero.astro:ecxgfa">Max Legal Lbs.</div>
+              </div>
+              <div class="w-12 h-12 border border-white/20 flex items-center justify-center" data-ps="src/components/home/Hero.astro:ecxgfb">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Offset decorative element -->
+        <div class="absolute -bottom-6 -right-6 w-32 h-32 border-b-2 border-r-2 border-primary/50 pointer-events-none hidden lg:block" data-ps="src/components/home/Hero.astro:ecxgfc"></div>
+      </div>
+    </div>
+  </Container>
+</section>

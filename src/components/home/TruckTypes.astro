@@ -1,0 +1,88 @@
+---
+import Container from '@/components/Container.astro';
+
+const vehicleTypes = [
+  {
+    id: "CLASS-8",
+    title: "Semi-Trucks & 18-Wheelers",
+    description: "80,000-pound commercial combinations. Primary risks include jackknifing, wide turns, and braking failures.",
+    image: "https://images.pexels.com/photos/34902065/pexels-photo-34902065.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    srcset: "https://images.pexels.com/photos/34902065/pexels-photo-34902065.jpeg?auto=compress&cs=tinysrgb&w=320 320w, https://images.pexels.com/photos/34902065/pexels-photo-34902065.jpeg?auto=compress&cs=tinysrgb&w=480 480w, https://images.pexels.com/photos/34902065/pexels-photo-34902065.jpeg?auto=compress&cs=tinysrgb&w=640 640w, https://images.pexels.com/photos/34902065/pexels-photo-34902065.jpeg?auto=compress&cs=tinysrgb&w=768 768w, https://images.pexels.com/photos/34902065/pexels-photo-34902065.jpeg?auto=compress&cs=tinysrgb&w=1024 1024w",
+    delay: ""
+  },
+  {
+    id: "LIQUID-BULK",
+    title: "Tanker Trucks",
+    description: "High center of gravity vehicles transporting hazardous or liquid materials. Prone to rollovers and slosh-induced instability.",
+    image: "https://images.pexels.com/photos/36228061/pexels-photo-36228061.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    srcset: "https://images.pexels.com/photos/36228061/pexels-photo-36228061.jpeg?auto=compress&cs=tinysrgb&w=320 320w, https://images.pexels.com/photos/36228061/pexels-photo-36228061.jpeg?auto=compress&cs=tinysrgb&w=480 480w, https://images.pexels.com/photos/36228061/pexels-photo-36228061.jpeg?auto=compress&cs=tinysrgb&w=640 640w, https://images.pexels.com/photos/36228061/pexels-photo-36228061.jpeg?auto=compress&cs=tinysrgb&w=768 768w, https://images.pexels.com/photos/36228061/pexels-photo-36228061.jpeg?auto=compress&cs=tinysrgb&w=1024 1024w",
+    delay: "reveal-delay-1"
+  },
+  {
+    id: "FLATBED",
+    title: "Flatbed Cargo",
+    description: "Open-trailer transports. Litigation often centers on FMCSA cargo securement rules, strap failures, and load shifting.",
+    image: "https://images.pexels.com/photos/17133452/pexels-photo-17133452.png?auto=compress&cs=tinysrgb&w=1200",
+    srcset: "https://images.pexels.com/photos/17133452/pexels-photo-17133452.png?auto=compress&cs=tinysrgb&w=320 320w, https://images.pexels.com/photos/17133452/pexels-photo-17133452.png?auto=compress&cs=tinysrgb&w=480 480w, https://images.pexels.com/photos/17133452/pexels-photo-17133452.png?auto=compress&cs=tinysrgb&w=640 640w, https://images.pexels.com/photos/17133452/pexels-photo-17133452.png?auto=compress&cs=tinysrgb&w=768 768w, https://images.pexels.com/photos/17133452/pexels-photo-17133452.png?auto=compress&cs=tinysrgb&w=1024 1024w",
+    delay: "reveal-delay-2"
+  },
+  {
+    id: "LAST-MILE",
+    title: "Commercial Delivery Vans",
+    description: "High-pressure local routes (Amazon, FedEx). Frequent issues with driver fatigue, aggressive quotas, and urban collisions.",
+    image: "https://images.pexels.com/photos/18434074/pexels-photo-18434074.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    srcset: "https://images.pexels.com/photos/18434074/pexels-photo-18434074.jpeg?auto=compress&cs=tinysrgb&w=320 320w, https://images.pexels.com/photos/18434074/pexels-photo-18434074.jpeg?auto=compress&cs=tinysrgb&w=480 480w, https://images.pexels.com/photos/18434074/pexels-photo-18434074.jpeg?auto=compress&cs=tinysrgb&w=640 640w, https://images.pexels.com/photos/18434074/pexels-photo-18434074.jpeg?auto=compress&cs=tinysrgb&w=768 768w, https://images.pexels.com/photos/18434074/pexels-photo-18434074.jpeg?auto=compress&cs=tinysrgb&w=1024 1024w",
+    delay: "reveal-delay-3"
+  }
+];
+---
+
+<section id="vehicle-types" class="py-20 md:py-28 lg:py-36 bg-background border-b border-border relative" data-ps="src/components/home/TruckTypes.astro:init">
+  <Container>
+    <div class="mb-16 md:mb-24 reveal" data-ps="src/components/home/TruckTypes.astro:ueuwsg">
+      <span class="font-mono text-primary text-sm uppercase tracking-widest block mb-4" data-ps="src/components/home/TruckTypes.astro:xl5jyb">Target Matrix</span>
+      <h2 class="text-h2 text-foreground mb-6" data-ps="src/components/home/TruckTypes.astro:kbif7j">Commercial Vehicle Classifications</h2>
+      <p class="text-muted-foreground max-w-2xl text-lg mb-8" data-ps="src/components/home/TruckTypes.astro:nxy68s">Different trucks require different forensic approaches. Our reconstruction teams specialize in extracting specific telemetry data and mechanical failure points unique to each vehicle class.</p>
+      <div class="h-1 w-24 bg-primary" data-ps="src/components/home/TruckTypes.astro:ueuwsh"></div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" data-ps="src/components/home/TruckTypes.astro:ueuwsi">
+      {vehicleTypes.map((type, __psIdx) => (
+        <div class={`group relative overflow-hidden border border-border bg-surface flex flex-col h-full reveal ${type.delay} hover-glow`} data-ps={`src/components/home/TruckTypes.astro:ueuwsj-${__psIdx}`}>
+          <!-- Image Header -->
+          <div class="relative h-48 w-full overflow-hidden border-b border-border" data-ps={`src/components/home/TruckTypes.astro:ueuwsk-${__psIdx}`}>
+            <div class="absolute inset-0 bg-background/50 group-hover:bg-transparent transition-colors duration-500 z-10 mix-blend-multiply" data-ps={`src/components/home/TruckTypes.astro:ueuwsl-${__psIdx}`}></div>
+            <img 
+              crossorigin="anonymous"
+              src={type.image}
+              srcset={type.srcset}
+              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
+              alt={type.title}
+              loading="lazy"
+              class="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-700 scale-100 group-hover:scale-105" data-ps={`src/components/home/TruckTypes.astro:jly57-${__psIdx}`} />
+            <div class="absolute top-3 right-3 z-20 bg-background/90 backdrop-blur px-2 py-1 font-mono text-[10px] text-primary border border-primary/30" data-ps={`src/components/home/TruckTypes.astro:ueuwsm-${__psIdx}`}>
+              {type.id}
+            </div>
+          </div>
+          
+          <!-- Content -->
+          <div class="p-6 flex flex-col flex-grow" data-ps={`src/components/home/TruckTypes.astro:ueuwsn-${__psIdx}`}>
+            <h3 class="font-display font-bold text-xl text-foreground mb-3 uppercase tracking-tight group-hover:text-primary transition-colors" data-ps={`src/components/home/TruckTypes.astro:yzxcf4-${__psIdx}`}>{type.title}</h3>
+            <p class="text-muted-foreground text-sm leading-relaxed mb-6 font-mono opacity-80" data-ps={`src/components/home/TruckTypes.astro:nxy68r-${__psIdx}`}>
+              {type.description}
+            </p>
+            <div class="mt-auto" data-ps={`src/components/home/TruckTypes.astro:ueuwso-${__psIdx}`}>
+              <a href="/#contact" class="inline-flex items-center gap-2 font-mono text-xs text-primary hover:text-foreground transition-colors group/link" data-ps={`src/components/home/TruckTypes.astro:gu09j0-${__psIdx}`}>
+                [ INIT_INVESTIGATION ]
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter" class="group-hover/link:translate-x-1 transition-transform">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </Container>
+</section>

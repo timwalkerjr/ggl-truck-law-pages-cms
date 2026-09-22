@@ -1,0 +1,80 @@
+---
+import { SITE } from '@/config/site';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Container from '@/components/Container.astro';
+import { getCollection } from 'astro:content';
+export async function getStaticPaths() {
+  return (await getCollection('services', ({data}) => !data.draft)).map(entry => ({params: {service: entry.id}, props: {service: entry.data}}));
+}
+const { service } = Astro.props;
+const analysisPoints = service.analysisPoints;
+const jsonLd = {'@context': 'https://schema.org', '@type': 'WebPage', name: service.seoTitle, description: service.description, url: new URL(Astro.url.pathname, SITE.url).toString()};
+---
+
+<BaseLayout 
+  title={`${service.seoTitle} | ${SITE.name}`} 
+  description={service.description} 
+  jsonLd={jsonLd}
+>
+  <div class="relative pt-32 pb-20 bg-background border-b border-border overflow-hidden" data-ps="src/pages/jackknife-accidents.astro:j1">
+    <div class="absolute inset-0 opacity-20 grayscale pointer-events-none" data-ps="src/pages/jackknife-accidents.astro:j2">
+      <img src={service.image} alt={service.imageAlt} class="w-full h-full object-cover" data-ps="src/pages/jackknife-accidents.astro:wrj54o" />
+    </div>
+    <Container>
+      <div class="max-w-4xl relative z-10" data-ps="src/pages/jackknife-accidents.astro:j3">
+        <div class="inline-flex items-center gap-3 px-3 py-1 bg-surface border border-primary/30 mb-8" data-ps="src/pages/jackknife-accidents.astro:j4">
+          <span class="flex h-2 w-2 rounded-full bg-primary animate-pulse" data-ps="src/pages/jackknife-accidents.astro:j5"></span>
+          <span class="text-[10px] font-mono font-bold tracking-[0.2em] text-primary uppercase" data-ps="src/pages/jackknife-accidents.astro:j6">{service.eyebrow}</span>
+        </div>
+        <h1 class="text-h1 font-black mb-8 leading-none uppercase" data-ps="src/pages/jackknife-accidents.astro:j7">{service.heading} <span class="text-primary" data-ps="src/pages/jackknife-accidents.astro:j8">{service.headingAccent}</span></h1>
+        <p class="text-xl text-muted-foreground leading-relaxed max-w-2xl" data-ps="src/pages/jackknife-accidents.astro:j9">{service.intro}</p>
+      </div>
+    </Container>
+  </div>
+
+  <section class="py-24 bg-background" data-ps="src/pages/jackknife-accidents.astro:j10">
+    <Container>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12" data-ps="src/pages/jackknife-accidents.astro:j11">
+        {analysisPoints.map((point, index) => (
+          <div class="p-8 bg-surface border border-border group hover:border-primary/50 transition-colors" data-ps={`src/pages/jackknife-accidents.astro:j12-${index}`}>
+            <div class="text-primary font-mono text-[10px] mb-4 uppercase tracking-widest" data-ps={`src/pages/jackknife-accidents.astro:j13-${index}`}>
+              Diagnostic Code {index + 1}
+            </div>
+            <h2 class="text-2xl font-black font-display text-foreground uppercase mb-4" data-ps={`src/pages/jackknife-accidents.astro:j14-${index}`}>
+              {point.title}
+            </h2>
+            <p class="text-muted-foreground leading-relaxed" data-ps={`src/pages/jackknife-accidents.astro:j15-${index}`}>
+              {point.detail}
+            </p>
+          </div>
+        ))}
+      </div>
+    </Container>
+  </section>
+
+  <section class="py-24 bg-surface border-y border-border" data-ps="src/pages/jackknife-accidents.astro:j16">
+    <Container>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center" data-ps="src/pages/jackknife-accidents.astro:j17">
+        <div data-ps="src/pages/jackknife-accidents.astro:j18">
+          <h2 class="text-4xl font-black font-display text-foreground mb-8 uppercase leading-tight" data-ps="src/pages/jackknife-accidents.astro:j19">{service.detailHeading} <span class="text-primary" data-ps="src/pages/jackknife-accidents.astro:j20">{service.detailHeadingAccent}</span></h2>
+          <p class="text-lg text-muted-foreground mb-6" data-ps="src/pages/jackknife-accidents.astro:j21">{service.detail}</p>
+          <ul class="space-y-4 mb-10" data-ps="src/pages/jackknife-accidents.astro:j22">
+            {service.bullets.map((item) => (
+              <li class="flex items-center gap-3 text-sm font-mono font-bold text-foreground uppercase" data-ps={`src/pages/jackknife-accidents.astro:j23-${item}`}>
+                <span class="w-1.5 h-1.5 bg-primary" data-ps={`src/pages/jackknife-accidents.astro:j24-${item}`}></span>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div class="aspect-square bg-background border border-border p-4 relative" data-ps="src/pages/jackknife-accidents.astro:j25">
+          <div class="absolute inset-4 border border-primary/10" data-ps="src/pages/jackknife-accidents.astro:j26"></div>
+          <img src={service.image} alt={service.imageAlt} class="w-full h-full object-cover grayscale opacity-50" data-ps="src/pages/jackknife-accidents.astro:wrj54p" />
+          <div class="absolute bottom-8 right-8 bg-primary p-4" data-ps="src/pages/jackknife-accidents.astro:j27">
+            <span class="text-[10px] font-mono font-black text-primary-foreground uppercase tracking-widest" data-ps="src/pages/jackknife-accidents.astro:j28">{service.imageCaption}</span>
+          </div>
+        </div>
+      </div>
+    </Container>
+  </section>
+</BaseLayout>

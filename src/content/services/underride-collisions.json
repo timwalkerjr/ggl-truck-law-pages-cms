@@ -1,0 +1,41 @@
+{
+  "title": "UNDERRIDE CRITICALITY",
+  "seoTitle": "Underride Collision Forensic Analysis",
+  "description": "Technical analysis of truck underride collisions. We investigate Mansfield bar failures and structural defects in rear-impact guards.",
+  "eyebrow": "Forensic Analysis: Exhibit B",
+  "heading": "UNDERRIDE",
+  "headingAccent": "CRITICALITY",
+  "intro": "Most underride fatalities are preventable. We hold carriers and manufacturers accountable for substandard rear and side impact guards.",
+  "image": "https://images.pexels.com/photos/797570/pexels-photo-797570.jpeg?auto=compress&cs=tinysrgb&w=1200",
+  "imageAlt": "Truck background",
+  "analysisPoints": [
+    {
+      "title": "Underride Guard Integrity",
+      "detail": "We evaluate the \"Mansfield Bar\" for welding defects, rust, or structural non-compliance with FMVSS No. 223/224 standards."
+    },
+    {
+      "title": "Crash Compatibility",
+      "detail": "Analysis of relative heights and energy absorption. We prove when a guard was positioned too high to stop a passenger vehicle from sliding underneath."
+    },
+    {
+      "title": "Secondary Impact Velocity",
+      "detail": "The true danger of underride is the secondary impact with the passenger compartment (PCI). We measure the deformation of the A-pillars and roof."
+    },
+    {
+      "title": "Material Science Audit",
+      "detail": "Testing the steel alloy of the rear-impact guard to ensure it met the minimum yield strength required to sustain a high-velocity impact."
+    }
+  ],
+  "detailHeading": "THE MANSFIELD",
+  "detailHeadingAccent": "FAILURE",
+  "detail": "When a rear-impact guard fails, the passenger vehicle experiences \"compartment intrusion.\" We utilize 3D laser scanning of the wreckage to prove that the guard folded due to fatigue or improper mounting.",
+  "bullets": [
+    "FMVSS 223/224 Compliance Audit",
+    "Guard Weld Fatigue Analysis",
+    "Mounting Bracket Deformation",
+    "Reflective Tape Visibility Check"
+  ],
+  "imageCaption": "Impact Force: 2200kN Measured",
+  "order": 2,
+  "draft": false
+}

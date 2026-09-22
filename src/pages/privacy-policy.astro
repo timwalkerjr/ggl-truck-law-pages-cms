@@ -1,0 +1,44 @@
+---
+import { SITE } from '@/config/site';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Container from '@/components/Container.astro';
+---
+
+<BaseLayout
+  title={`Privacy Policy | ${SITE.name}`}
+  description="Privacy policy and data handling practices for Garces, Grabler & LeBrocq."
+  type="website"
+>
+  <div class="bg-background pt-32 pb-24 border-b border-border" data-ps="src/pages/privacy-policy.astro:pffnzn">
+    <Container>
+      <div class="max-w-3xl" data-ps="src/pages/privacy-policy.astro:pffnzo">
+        <div class="flex items-center gap-3 mb-6 reveal" data-ps="src/pages/privacy-policy.astro:pffnzp">
+          <span class="text-primary font-mono text-sm tracking-widest uppercase" data-ps="src/pages/privacy-policy.astro:e5392j">Exhibit // 10</span>
+          <div class="h-[1px] bg-primary/30 flex-1" data-ps="src/pages/privacy-policy.astro:pffnzq"></div>
+        </div>
+        <h1 class="text-4xl md:text-5xl font-black font-display uppercase tracking-tighter mb-6 reveal" data-ps="src/pages/privacy-policy.astro:yc2gav">Privacy Policy</h1>
+      </div>
+    </Container>
+  </div>
+
+  <section class="py-20 bg-surface" data-ps="src/pages/privacy-policy.astro:y5a2ra">
+    <Container>
+      <div class="max-w-3xl prose prose-invert prose-p:font-mono prose-p:text-sm prose-p:leading-relaxed prose-headings:font-display prose-headings:tracking-tight prose-headings:uppercase prose-h2:text-primary" data-ps="src/pages/privacy-policy.astro:pffnzr">
+        <h2 data-ps="src/pages/privacy-policy.astro:dlu4un">Information We Collect</h2>
+        <p data-ps="src/pages/privacy-policy.astro:y33jwy">We collect information you provide directly to us when you fill out a contact form, request a consultation, or otherwise communicate with us. This may include your name, email address, phone number, and details regarding your potential legal matter.</p>
+        
+        <h2 data-ps="src/pages/privacy-policy.astro:dlu4um">Automatically Collected Data</h2>
+        <p data-ps="src/pages/privacy-policy.astro:y33jwz">When you access or use our website, we may automatically collect certain information about your device and usage of the site. This may include your IP address, browser type, operating system, referring URLs, device information, and diagnostic data.</p>
+
+        <h2 data-ps="src/pages/privacy-policy.astro:yt43fu">Use of Information</h2>
+        <p data-ps="src/pages/privacy-policy.astro:y33jx0">We use the information we collect to communicate with you regarding your inquiries, to provide, maintain, and improve our services, and to detect, investigate, and prevent fraudulent transactions and other illegal activities and protect the rights and property of Garces, Grabler & LeBrocq and others.</p>
+
+        <h2 data-ps="src/pages/privacy-policy.astro:yt43ft">Data Sharing</h2>
+        <p data-ps="src/pages/privacy-policy.astro:y33jx1">We do not share your personal information with third parties for their marketing purposes. We may share information with vendors, consultants, and other service providers who need access to such information to carry out work on our behalf, or when required by law or to respond to legal process.</p>
+        
+        <h2 data-ps="src/pages/privacy-policy.astro:yt43fs">Contact Us</h2>
+        <p data-ps="src/pages/privacy-policy.astro:y33jx2">If you have any questions about this Privacy Policy, please contact us at via the contact forms provided on this website or call our New Brunswick office directly.</p>
+      </div>
+    </Container>
+  </section>
+</BaseLayout>

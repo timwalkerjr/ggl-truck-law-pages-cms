@@ -1,0 +1,60 @@
+---
+import { SITE } from '@/config/site';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Container from '@/components/Container.astro';
+import Blueprint from '@/components/home/Blueprint.astro';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: `Litigation Process | ${SITE.name}`,
+  description: 'Our proprietary 3-stage trial blueprint for commercial truck accident litigation.',
+  url: new URL('/litigation-process', SITE.url).toString(),
+};
+---
+
+<BaseLayout 
+  title={`Truck Accident Litigation Process | New Brunswick, NJ | ${SITE.name}`} 
+  description="Our specialized 3-stage trial blueprint for New Brunswick truck accident litigation, from evidence preservation to high-stakes courtroom victory." 
+  jsonLd={jsonLd}
+>
+  <div class="pt-32 pb-20 bg-background border-b border-border" data-ps="src/pages/litigation-process.astro:8i0tx6">
+    <Container>
+      <div class="max-w-4xl" data-ps="src/pages/litigation-process.astro:8i0tx5">
+        <div class="inline-flex items-center gap-3 px-3 py-1 bg-surface border border-primary/30 mb-8" data-ps="src/pages/litigation-process.astro:8i0tx4">
+          <span class="flex h-2 w-2 rounded-full bg-primary animate-pulse" data-ps="src/pages/litigation-process.astro:6p8qtj"></span>
+          <span class="text-[10px] font-mono font-bold tracking-[0.2em] text-primary uppercase" data-ps="src/pages/litigation-process.astro:6p8qti">Tactical Deployment</span>
+        </div>
+        <h1 class="text-h1 font-black mb-8 leading-none" data-ps="src/pages/litigation-process.astro:qgkk24">THE LITIGATION <span class="text-primary" data-ps="src/pages/litigation-process.astro:6p8qth">BLUEPRINT</span></h1>
+        <p class="text-xl text-muted-foreground leading-relaxed max-w-2xl" data-ps="src/pages/litigation-process.astro:marwbm">
+          From the moment of a commercial collision in New Brunswick to the final verdict, we deploy an aggressive, evidence-driven offensive designed to force maximum insurance payouts from corporate trucking giants.
+        </p>
+      </div>
+    </Container>
+  </div>
+
+  <Blueprint />
+
+  <section class="py-24 bg-surface relative overflow-hidden" data-ps="src/pages/litigation-process.astro:f20cm5">
+    <Container>
+      <div class="max-w-3xl mx-auto text-center" data-ps="src/pages/litigation-process.astro:8i0tx3">
+        <h2 class="text-h2 font-black mb-8" data-ps="src/pages/litigation-process.astro:pziwx7">READY TO BEGIN THE PROCESS?</h2>
+        <p class="text-xl text-muted-foreground mb-12" data-ps="src/pages/litigation-process.astro:marwbn">
+          The first 48 hours are critical for federal evidence preservation. Don't let the carrier control the narrative or overwrite the telematics data.
+        </p>
+        <div class="flex flex-wrap justify-center gap-6" data-ps="src/pages/litigation-process.astro:8i0tx2">
+          <a href="/#contact" class="px-10 py-5 bg-primary text-primary-foreground font-black font-display uppercase tracking-widest hover:bg-primary-hover transition-all hover-lift text-lg" data-ps="src/pages/litigation-process.astro:tept1b">
+            Start Free Evaluation
+          </a>
+          <a href="tel:8886205852" class="px-10 py-5 border-2 border-border text-foreground font-black font-display uppercase tracking-widest hover:bg-background transition-all hover-lift text-lg" data-ps="src/pages/litigation-process.astro:tept1c">
+            Call 24/7 Support: (888) 620-5852
+          </a>
+        </div>
+      </div>
+    </Container>
+    
+    <!-- Decorative background elements -->
+    <div class="absolute top-0 right-0 w-64 h-64 border-t-2 border-r-2 border-primary/10 -mr-32 -mt-32" data-ps="src/pages/litigation-process.astro:8i0tx1"></div>
+    <div class="absolute bottom-0 left-0 w-64 h-64 border-b-2 border-l-2 border-primary/10 -ml-32 -mb-32" data-ps="src/pages/litigation-process.astro:8i0tx0"></div>
+  </section>
+</BaseLayout>

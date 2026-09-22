@@ -1,0 +1,6 @@
+{
+  "title": "How does Black Box (EDR) data affect my case?",
+  "answer": "The Event Data Recorder (EDR) provides objective telemetry: speed at impact, braking patterns, throttle position, and steering input. Our forensic experts download this data to prove driver negligence, often contradicting the driver's own statement to police at the scene.",
+  "order": 3,
+  "draft": false
+}

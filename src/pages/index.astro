@@ -1,0 +1,93 @@
+---
+import { SITE } from '@/config/site';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Hero from '@/components/home/Hero.astro';
+import Metrics from '@/components/home/Metrics.astro';
+import Dismantle from '@/components/home/Dismantle.astro';
+import Blueprint from '@/components/home/Blueprint.astro';
+import Outcomes from '@/components/home/Outcomes.astro';
+import Regulatory from '@/components/home/Regulatory.astro';
+import Jurisdiction from '@/components/home/Jurisdiction.astro';
+import Intel from '@/components/home/Intel.astro';
+import FAQ from '@/components/home/FAQ.astro';
+import TruckTypes from '@/components/home/TruckTypes.astro';
+import Testimonials from '@/components/home/Testimonials.astro';
+import ContactForm from '@/components/home/ContactForm.astro';
+---
+
+<BaseLayout
+  title={SITE.title}
+  description={SITE.description}
+  type="website"
+  jsonLd={{
+    '@context': 'https://schema.org',
+    '@type': 'LegalService',
+    '@id': `${SITE.url}/#legal-service`,
+    name: 'Garces, Grabler & LeBrocq - New Brunswick Truck Accident Lawyers',
+    description: SITE.description,
+    url: SITE.url,
+    telephone: '+1-800-555-8789',
+    priceRange: '$$$',
+    image: `${SITE.url}/og-image.png`,
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: '123 Albany Street',
+      addressLocality: 'New Brunswick',
+      addressRegion: 'NJ',
+      postalCode: '08901',
+      addressCountry: 'US'
+    },
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: 40.4862,
+      longitude: -74.4518
+    },
+    openingHoursSpecification: [
+      {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: [
+          'Monday',
+          'Tuesday',
+          'Wednesday',
+          'Thursday',
+          'Friday',
+          'Saturday',
+          'Sunday'
+        ],
+        opens: '00:00',
+        closes: '23:59'
+      }
+    ],
+    areaServed: [
+      {
+        '@type': 'City',
+        name: 'New Brunswick',
+        sameAs: 'https://www.wikidata.org/wiki/Q1001476'
+      },
+      {
+        '@type': 'AdministrativeArea',
+        name: 'Middlesex County',
+        sameAs: 'https://www.wikidata.org/wiki/Q502390'
+      },
+      {
+        '@type': 'State',
+        name: 'New Jersey',
+        sameAs: 'https://www.wikidata.org/wiki/Q1408'
+      }
+    ],
+    sameAs: Object.values(SITE.socials),
+  }}
+>
+  <Hero />
+  <Metrics />
+  <Dismantle />
+  <Regulatory />
+  <Blueprint />
+  <Outcomes />
+  <Jurisdiction />
+  <Intel />
+  <TruckTypes />
+  <Testimonials />
+  <FAQ />
+  <ContactForm />
+</BaseLayout>

@@ -1,0 +1,41 @@
+{
+  "title": "HOS EXPLOITATION",
+  "seoTitle": "HOS Violation & Driver Fatigue Analysis",
+  "description": "Technical analysis of HOS violations and ELD tampering. We use digital forensics to prove truck driver fatigue and carrier coercion.",
+  "eyebrow": "Forensic Analysis: Exhibit C",
+  "heading": "HOS",
+  "headingAccent": "EXPLOITATION",
+  "intro": "Driver fatigue is a systemic failure, not an individual choice. We expose the digital paper trails that prove carriers prioritize delivery speed over human life.",
+  "image": "https://images.pexels.com/photos/37538286/pexels-photo-37538286.jpeg?auto=compress&cs=tinysrgb&w=1200",
+  "imageAlt": "ELD Dashboard",
+  "analysisPoints": [
+    {
+      "title": "ELD Data Forensics",
+      "detail": "We scrub raw Electronic Logging Device (ELD) data for \"ghost miles\" and manual edits that hide overtime driving. We correlate GPS pings with fuel receipts."
+    },
+    {
+      "title": "The 14-Hour Rule",
+      "detail": "Commercial drivers have a strict 14-hour duty window. We prove violations when carriers pressure drivers to \"off-duty\" while still operating the vehicle."
+    },
+    {
+      "title": "Fatigue Microsleep Analysis",
+      "detail": "Using dashcam footage and steering input data, we identify the signature patterns of \"microsleep\" caused by chronic HOS non-compliance."
+    },
+    {
+      "title": "Carrier Pressure Audit",
+      "detail": "We subpoena dispatch logs and internal messaging apps to find direct evidence of dispatchers coercing drivers to bypass mandatory rest breaks."
+    }
+  ],
+  "detailHeading": "THE DIGITAL",
+  "detailHeadingAccent": "FRAUD",
+  "detail": "\"Paper logs\" are a relic of the past, but digital tampering is the new frontier. We work with IT forensic specialists to recover deleted duty status records and verify ELD sensor integrity.",
+  "bullets": [
+    "11-Hour Driving Limit Audit",
+    "34-Hour Restart Verification",
+    "Sleeper Berth Split Compliance",
+    "GPS vs. Log Correlation"
+  ],
+  "imageCaption": "Log Sync: ERROR FOUND",
+  "order": 3,
+  "draft": false
+}

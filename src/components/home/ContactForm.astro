@@ -1,0 +1,104 @@
+---
+import Container from '@/components/Container.astro';
+import { SITE } from '@/config/site';
+const formspreeEndpoint = import.meta.env.PUBLIC_FORMSPREE_ENDPOINT;
+---
+
+<section id="contact" class="bg-surface py-20 md:py-32 border-t border-border" data-ps="src/components/home/ContactForm.astro:c1">
+  <Container>
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-16" data-ps="src/components/home/ContactForm.astro:fufm9m">
+      <!-- Left Panel -->
+      <div class="lg:col-span-5" data-ps="src/components/home/ContactForm.astro:fufm9l">
+        <div class="reveal inline-block px-3 py-1 border-l-2 border-primary text-[10px] font-mono font-bold tracking-[0.3em] text-primary uppercase mb-6" data-ps="src/components/home/ContactForm.astro:fufm9k">
+          Rapid Response Protocol
+        </div>
+        <h2 class="reveal text-h2 font-black mb-8 uppercase" data-ps="src/components/home/ContactForm.astro:f1qe6g">{SITE.location.city} <span class="text-primary" data-ps="src/components/home/ContactForm.astro:g2vbzx">CASE INTAKE</span></h2>
+        
+        <div class="reveal reveal-delay-1 space-y-12" data-ps="src/components/home/ContactForm.astro:fufm9j">
+          <div data-ps="src/components/home/ContactForm.astro:fufm9i">
+            <div class="text-[10px] font-mono text-muted-foreground uppercase tracking-widest mb-2" data-ps="src/components/home/ContactForm.astro:fufm9h">Emergency Hotline</div>
+            <a href={`tel:${SITE.contact.phone.replace(/[^0-9]/g, '')}`} class="text-3xl md:text-4xl font-black font-display text-foreground hover:text-primary transition-colors no-underline" data-ps="src/components/home/ContactForm.astro:i1x14m">
+              {SITE.contact.phone}
+            </a>
+            <div class="flex items-center gap-2 text-primary mt-2" data-ps="src/components/home/ContactForm.astro:fufm9g">
+              <span class="flex h-2 w-2 rounded-full bg-primary animate-pulse" data-ps="src/components/home/ContactForm.astro:g2vbzw"></span>
+              <span class="text-xs font-mono font-bold uppercase tracking-tight" data-ps="src/components/home/ContactForm.astro:g2vbzv">Monitored 24/7 by Commercial Collision Investigators</span>
+            </div>
+          </div>
+
+          <div class="space-y-6 text-muted-foreground" data-ps="src/components/home/ContactForm.astro:fufm9f">
+            <p data-ps="src/components/home/ContactForm.astro:p5uxuc">Our {SITE.location.city} truck accident investigators are ready to deploy to {SITE.location.corridors} immediately following a commercial collision.</p>
+            <p data-ps="src/components/home/ContactForm.astro:p5uxub"><strong>Zero Fee Guarantee:</strong> Consult with a semi-truck accident attorney today. No legal fees unless we recover significant compensation from the carrier or broker.</p>
+          </div>
+
+          <div class="pt-8 border-t border-border" data-ps="src/components/home/ContactForm.astro:fufm9e">
+            <div class="text-[10px] font-mono text-muted-foreground uppercase tracking-widest mb-4" data-ps="src/components/home/ContactForm.astro:fufm9d">{SITE.location.county} Office</div>
+            <address class="not-italic font-display font-bold text-lg text-foreground uppercase tracking-tighter whitespace-pre-line">
+              {SITE.contact.address}
+            </address>
+          </div>
+        </div>
+      </div>
+
+      <!-- Form Panel -->
+      <div class="lg:col-span-7" data-ps="src/components/home/ContactForm.astro:9ocn1j">
+        <div id="contact-status" class="hidden mb-8 p-6 border-2 font-display font-bold uppercase tracking-widest" data-ps="src/components/home/ContactForm.astro:9ocn1i"></div>
+
+        {!formspreeEndpoint && <p class="mb-6 border border-primary p-4 text-sm">Test site: online submissions are not enabled yet.</p>}
+        <form name="case-intake" method="POST" action={formspreeEndpoint} id="contact-form" class="reveal reveal-delay-2 space-y-6" data-phone={SITE.contact.phone}>
+          <p hidden><label>Leave this empty <input name="_gotcha" /></label></p>
+          <input type="hidden" name="_subject" value="Truck accident case inquiry" />
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6" data-ps="src/components/home/ContactForm.astro:9ocn1h">
+            <div data-ps="src/components/home/ContactForm.astro:9ocn1g">
+              <label for="name" class="block text-[10px] font-mono font-bold text-muted-foreground uppercase tracking-widest mb-2" data-ps="src/components/home/ContactForm.astro:5gyyqz">Full Name *</label>
+              <input type="text" id="name" name="name" required placeholder="John Doe"
+                class="w-full bg-background border border-border px-4 py-4 text-foreground font-display font-bold uppercase placeholder:text-muted-foreground/30 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" />
+            </div>
+            <div data-ps="src/components/home/ContactForm.astro:9ocn1f">
+              <label for="phone" class="block text-[10px] font-mono font-bold text-muted-foreground uppercase tracking-widest mb-2" data-ps="src/components/home/ContactForm.astro:5gyyqy">Contact Number *</label>
+              <input type="tel" id="phone" name="phone" required placeholder="000-000-0000"
+                class="w-full bg-background border border-border px-4 py-4 text-foreground font-display font-bold uppercase placeholder:text-muted-foreground/30 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" />
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6" data-ps="src/components/home/ContactForm.astro:9ocn1e">
+            <div data-ps="src/components/home/ContactForm.astro:9ocn1d">
+              <label for="email" class="block text-[10px] font-mono font-bold text-muted-foreground uppercase tracking-widest mb-2" data-ps="src/components/home/ContactForm.astro:5gyyqx">Email Address *</label>
+              <input type="email" id="email" name="email" required placeholder="john@example.com"
+                class="w-full bg-background border border-border px-4 py-4 text-foreground font-display font-bold uppercase placeholder:text-muted-foreground/30 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" />
+            </div>
+            <div data-ps="src/components/home/ContactForm.astro:9ocn1c">
+              <label for="date" class="block text-[10px] font-mono font-bold text-muted-foreground uppercase tracking-widest mb-2" data-ps="src/components/home/ContactForm.astro:5gyyqb">Date of Incident</label>
+              <input type="date" id="date" name="date"
+                class="w-full bg-background border border-border px-4 py-4 text-foreground font-display font-bold uppercase placeholder:text-muted-foreground/30 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" />
+            </div>
+          </div>
+
+          <div data-ps="src/components/home/ContactForm.astro:9ocn1b">
+            <label for="truck_size" class="block text-[10px] font-mono font-bold text-muted-foreground uppercase tracking-widest mb-2" data-ps="src/components/home/ContactForm.astro:5gyyqa">Estimated Truck Size *</label>
+            <select id="truck_size" name="truck_size" required
+              class="w-full bg-background border border-border px-4 py-4 text-foreground font-display font-bold uppercase focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all appearance-none">
+              <option value="" disabled selected>Select vehicle type...</option>
+              <option value="Semi / 18-Wheeler">Semi / 18-Wheeler</option>
+              <option value="Delivery Van">Delivery Van</option>
+              <option value="Dump Truck">Dump Truck</option>
+              <option value="Box Truck">Box Truck</option>
+              <option value="Other Commercial">Other Commercial</option>
+            </select>
+          </div>
+
+          <div data-ps="src/components/home/ContactForm.astro:9ocn1a">
+            <label for="message" class="block text-[10px] font-mono font-bold text-muted-foreground uppercase tracking-widest mb-2" data-ps="src/components/home/ContactForm.astro:5gyyq9">Briefly Describe the Collision *</label>
+            <textarea id="message" name="message" rows="5" required placeholder="Details of the incident..."
+              class="w-full bg-background border border-border px-4 py-4 text-foreground font-display font-bold uppercase placeholder:text-muted-foreground/30 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all"></textarea>
+          </div>
+
+          <button type="submit" id="contact-submit" disabled={!formspreeEndpoint}
+            class="w-full bg-primary text-primary-foreground px-8 py-5 font-black font-display text-lg uppercase tracking-[0.2em] hover:bg-primary-hover transition-all hover-lift" data-ps="src/components/home/ContactForm.astro:wtk1km">
+            Request Emergency Case Evaluation
+          </button>
+        </form>
+      </div>
+    </div>
+  </Container>
+</section>

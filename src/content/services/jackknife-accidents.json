@@ -1,0 +1,41 @@
+{
+  "title": "JACKKNIFE DYNAMICS",
+  "seoTitle": "Jackknife Accident Forensic Analysis",
+  "description": "Technical analysis of jackknife semi-truck accidents. We use forensic engineering to prove tractor-trailer brake and cargo negligence.",
+  "eyebrow": "Forensic Analysis: Exhibit A",
+  "heading": "JACKKNIFE",
+  "headingAccent": "DYNAMICS",
+  "intro": "A jackknife is not an \"act of God.\" It is a physics-driven failure often caused by mechanical neglect or aggressive steering under heavy braking.",
+  "image": "https://images.pexels.com/photos/797570/pexels-photo-797570.jpeg?auto=compress&cs=tinysrgb&w=1200",
+  "imageAlt": "Truck background",
+  "analysisPoints": [
+    {
+      "title": "Brake Imbalance",
+      "detail": "Uneven brake pressure between the tractor and trailer is the primary mechanical trigger for a jackknife event. We verify maintenance logs for S-cam and air-chamber failures."
+    },
+    {
+      "title": "Pneumatic System Lag",
+      "detail": "A delay in air pressure reaching the rear axles causes the trailer to push the tractor. We analyze the EDR for ABS deployment failures."
+    },
+    {
+      "title": "Cargo Weight Distribution",
+      "detail": "Improperly loaded or unsecured cargo shifts the center of gravity, initiating the yaw movement. We weigh debris and check loading manifests."
+    },
+    {
+      "title": "Kinematic Reconstruction",
+      "detail": "By measuring skid marks and terminal resting positions, we calculate the exact speed and steering input at the moment the articulation point failed."
+    }
+  ],
+  "detailHeading": "THE CRITICAL",
+  "detailHeadingAccent": "ANGLE",
+  "detail": "Once a trailer exceeds a 15-degree angle relative to the tractor cab, recovery is impossible without advanced intervention. We analyze the 5th-wheel coupling and air lines to see if a mechanical failure preceded the yaw movement.",
+  "bullets": [
+    "Load-sensing valve malfunction",
+    "S-cam brake over-adjustment",
+    "Glads-hand air leaks",
+    "Steering axle lock-up"
+  ],
+  "imageCaption": "Data Log: 77.2% Precision",
+  "order": 1,
+  "draft": false
+}

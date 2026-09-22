@@ -1,0 +1,52 @@
+---
+import { getCollection } from 'astro:content';
+const outcomes = (await getCollection('verdicts', ({ data }) => !data.draft && data.featured)).sort((a,b) => a.data.order - b.data.order);
+import Container from '@/components/Container.astro';
+---
+
+<section id="outcomes" class="bg-dark-background py-24 border-y border-border overflow-hidden" data-ps="src/components/home/Outcomes.astro:o1">
+  <Container>
+    <div class="mb-20" data-ps="src/components/home/Outcomes.astro:o2">
+      <div class="reveal inline-block px-3 py-1 border-l-2 border-primary text-[10px] font-mono font-bold tracking-[0.3em] text-primary uppercase mb-6" data-ps="src/components/home/Outcomes.astro:o3">
+        Track Record & Verifiable Outcomes
+      </div>
+      <h2 class="reveal text-h2 font-black mb-8 leading-none" data-ps="src/components/home/Outcomes.astro:o4">
+        PROVEN <span class="text-primary" data-ps="src/components/home/Outcomes.astro:q3nm09">LITIGATION VICTORIES.</span>
+      </h2>
+      <p class="reveal reveal-delay-1 text-xl text-muted-foreground max-w-2xl" data-ps="src/components/home/Outcomes.astro:o5">
+        While every case is unique, these results represent our clinical commitment to dismantling corporate trucking defenses in New Jersey.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" data-ps="src/components/home/Outcomes.astro:o6">
+      {outcomes.map(({ data: outcome }, index) => (
+<div class="reveal group p-8 bg-surface border border-border relative overflow-hidden" data-ps="src/components/home/Outcomes.astro:o7">
+        <div class="absolute top-0 right-0 p-4 font-mono text-[10px] text-muted-foreground/30" data-ps="src/components/home/Outcomes.astro:o8">VERDICT_LOG_{String(index + 1).padStart(3, '0')}</div>
+        <div class="text-[10px] font-mono font-bold text-primary uppercase tracking-widest mb-4" data-ps="src/components/home/Outcomes.astro:o9">{outcome.venue}</div>
+        <h3 class="text-3xl font-black font-display text-foreground mb-4 leading-none" data-ps="src/components/home/Outcomes.astro:o10">{outcome.amount}</h3>
+        <p class="text-muted-foreground text-sm mb-6 leading-relaxed" data-ps="src/components/home/Outcomes.astro:o11">
+          {outcome.detail}
+        </p>
+        <div class="pt-6 border-t border-border flex justify-between items-center" data-ps="src/components/home/Outcomes.astro:o12">
+          <span class="text-[10px] font-mono text-success font-bold uppercase" data-ps="src/components/home/Outcomes.astro:o13">{outcome.status}</span>
+          <div class="w-8 h-8 border border-border flex items-center justify-center group-hover:bg-primary group-hover:border-primary transition-colors" data-ps="src/components/home/Outcomes.astro:o14">
+            <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </div>
+        </div>
+      </div>
+      ))}
+
+    </div>
+    
+    <div class="reveal reveal-delay-3 mt-16 flex flex-col sm:flex-row justify-center gap-8 items-center" data-ps="src/components/home/Outcomes.astro:o31">
+      <a href="/verdicts" class="inline-flex items-center gap-4 text-primary font-black font-display uppercase tracking-widest hover:gap-6 transition-all group" data-ps="src/components/home/Outcomes.astro:o32">
+        View Verdict Library
+        <svg class="w-6 h-6 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+      </a>
+      <a href="/case-studies" class="inline-flex items-center gap-4 text-foreground font-black font-display uppercase tracking-widest hover:gap-6 transition-all group border-l-2 border-border pl-8" data-ps="src/components/home/Outcomes.astro:cs-cta">
+        Detailed Case Analysis
+        <svg class="w-6 h-6 transition-transform group-hover:translate-x-1 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+      </a>
+    </div>
+  </Container>
+</section>

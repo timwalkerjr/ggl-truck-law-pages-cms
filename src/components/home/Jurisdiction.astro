@@ -1,0 +1,58 @@
+---
+import Container from '@/components/Container.astro';
+import { SITE } from '@/config/site';
+---
+
+<section id="jurisdiction" class="bg-surface py-24 md:py-32 border-t border-border" data-ps="src/components/home/Jurisdiction.astro:j1">
+  <Container>
+    <div class="max-w-4xl mb-20" data-ps="src/components/home/Jurisdiction.astro:j2">
+      <div class="reveal inline-block px-3 py-1 border-l-2 border-primary text-[10px] font-mono font-bold tracking-[0.3em] text-primary uppercase mb-6" data-ps="src/components/home/Jurisdiction.astro:j3">
+        Local Tactical Intelligence
+      </div>
+      <h2 class="reveal text-h2 font-black mb-8 leading-none uppercase" data-ps="src/components/home/Jurisdiction.astro:j4">
+        NAVIGATING {SITE.location.state}'S <span class="text-primary" data-ps="src/components/home/Jurisdiction.astro:q2jmkp">JUDICIAL VENUES.</span>
+      </h2>
+      <p class="reveal reveal-delay-1 text-xl text-muted-foreground" data-ps="src/components/home/Jurisdiction.astro:j5">
+        Success in trucking litigation requires absolute familiarity with the specific local court systems where your case will be decided.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8" data-ps="src/components/home/Jurisdiction.astro:j6">
+      <!-- Venue 1 -->
+      <div class="reveal group p-8 bg-background border border-border relative overflow-hidden" data-ps="src/components/home/Jurisdiction.astro:j7">
+        <h3 class="text-2xl font-black font-display text-foreground mb-4 uppercase" data-ps="src/components/home/Jurisdiction.astro:j8">{SITE.location.county} Superior Court</h3>
+        <p class="text-[10px] font-mono text-primary font-bold tracking-widest uppercase mb-6" data-ps="src/components/home/Jurisdiction.astro:j9">{SITE.location.city}, {SITE.location.state}</p>
+        <p class="text-muted-foreground text-sm mb-6 leading-relaxed" data-ps="src/components/home/Jurisdiction.astro:j10">
+          The primary venue for major commercial vehicle litigation in {SITE.location.region}. We have decades of experience litigating multi-million dollar injury claims before the {SITE.location.county} bench.
+        </p>
+        <div class="flex items-center gap-2 text-[10px] font-mono text-muted-foreground uppercase" data-ps="src/components/home/Jurisdiction.astro:j11">
+          <span class="w-2 h-2 rounded-full bg-success animate-pulse" data-ps="src/components/home/Jurisdiction.astro:j12"></span>
+          Active Litigation Zone
+        </div>
+      </div>
+
+      <!-- Venue 2 -->
+      <div class="reveal reveal-delay-1 group p-8 bg-background border border-border relative overflow-hidden" data-ps="src/components/home/Jurisdiction.astro:j13">
+        <h3 class="text-2xl font-black font-display text-foreground mb-4 uppercase" data-ps="src/components/home/Jurisdiction.astro:j14">U.S. District Court, District of {SITE.location.state}</h3>
+        <p class="text-[10px] font-mono text-primary font-bold tracking-widest uppercase mb-6" data-ps="src/components/home/Jurisdiction.astro:j15">Federal Venue</p>
+        <p class="text-muted-foreground text-sm mb-6 leading-relaxed" data-ps="src/components/home/Jurisdiction.astro:j16">
+          When diversity jurisdiction applies, we move to Federal Court. We are experts in Federal Rules of Evidence and the complex procedural maneuvers required for interstate carrier litigation.
+        </p>
+        <div class="flex items-center gap-2 text-[10px] font-mono text-muted-foreground uppercase" data-ps="src/components/home/Jurisdiction.astro:j17">
+          <span class="w-2 h-2 rounded-full bg-primary animate-pulse" data-ps="src/components/home/Jurisdiction.astro:j18"></span>
+          Federal Jurisdiction Specialist
+        </div>
+      </div>
+    </div>
+
+    <div class="reveal reveal-delay-2 mt-20 p-8 border border-primary/20 bg-background/50 text-center" data-ps="src/components/home/Jurisdiction.astro:j19">
+      <p class="text-lg font-display text-foreground uppercase tracking-tight italic mb-8" data-ps="src/components/home/Jurisdiction.astro:j20">
+        "Victory depends on knowing the specific judicial temperament and prosecutorial strategies in the exact room where your case is heard."
+      </p>
+      <a href="/local-jurisdiction" class="inline-flex items-center gap-4 text-primary font-black font-display uppercase tracking-widest hover:gap-6 transition-all group text-sm" data-ps="src/components/home/Jurisdiction.astro:j21">
+        Explore {SITE.location.state} Judicial Intelligence
+        <svg class="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+      </a>
+    </div>
+  </Container>
+</section>

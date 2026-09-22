@@ -1,0 +1,83 @@
+---
+import { getCollection } from 'astro:content';
+import { SITE } from '@/config/site';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Container from '@/components/Container.astro';
+import Outcomes from '@/components/home/Outcomes.astro';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: `Case Verdicts & Settlements | ${SITE.name}`,
+  description: 'A forensic record of multi-million dollar truck accident recoveries across New Jersey corridors.',
+  url: new URL('/verdicts', SITE.url).toString(),
+};
+
+const extendedOutcomes = (await getCollection('verdicts', ({ data }) => !data.draft && !data.featured)).sort((a,b) => a.data.order - b.data.order).map(entry => entry.data);
+---
+
+<BaseLayout 
+  title={`Truck Accident Verdicts & Settlements | New Brunswick, NJ | ${SITE.name}`} 
+  description="Proven multi-million dollar outcomes for semi-truck and 18-wheeler accidents in New Brunswick and across New Jersey." 
+  jsonLd={jsonLd}
+>
+  <div class="pt-32 pb-20 bg-background border-b border-border" data-ps="src/pages/verdicts.astro:v1">
+    <Container>
+      <div class="max-w-4xl" data-ps="src/pages/verdicts.astro:v2">
+        <div class="inline-flex items-center gap-3 px-3 py-1 bg-surface border border-primary/30 mb-8" data-ps="src/pages/verdicts.astro:v3">
+          <span class="flex h-2 w-2 rounded-full bg-success animate-pulse" data-ps="src/pages/verdicts.astro:v4"></span>
+          <span class="text-[10px] font-mono font-bold tracking-[0.2em] text-primary uppercase" data-ps="src/pages/verdicts.astro:v5">Verified Recovery Logs</span>
+        </div>
+        <h1 class="text-h1 font-black mb-8 leading-none" data-ps="src/pages/verdicts.astro:v6">PROVEN <span class="text-primary" data-ps="src/pages/verdicts.astro:v7">OUTCOMES</span></h1>
+        <p class="text-xl text-muted-foreground leading-relaxed max-w-2xl" data-ps="src/pages/verdicts.astro:v8">
+          The following case results represent our commitment to forensic litigation. We don't just settle for what's easy—we fight for the maximum value justified by the technical evidence.
+        </p>
+      </div>
+    </Container>
+  </div>
+
+  <Outcomes />
+
+  <section class="py-24 bg-background" data-ps="src/pages/verdicts.astro:v9">
+    <Container>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8" data-ps="src/pages/verdicts.astro:v10">
+        {extendedOutcomes.map((outcome, index) => (
+          <div class="p-8 bg-surface border border-border relative overflow-hidden group" data-ps={`src/pages/verdicts.astro:v11-${index}`}>
+            <div class="absolute top-0 right-0 p-4 font-mono text-[8px] text-muted-foreground/30 uppercase" data-ps={`src/pages/verdicts.astro:v12-${index}`}>
+              Supplemental_Log_{200 + index}
+            </div>
+            <div class="text-[10px] font-mono font-bold text-primary uppercase tracking-widest mb-4" data-ps={`src/pages/verdicts.astro:v13-${index}`}>
+              {outcome.venue}
+            </div>
+            <div class="text-2xl font-black font-display text-foreground mb-2" data-ps={`src/pages/verdicts.astro:v14-${index}`}>
+              {outcome.amount}
+            </div>
+            <div class="text-[10px] font-mono text-muted-foreground uppercase mb-6 tracking-wider" data-ps={`src/pages/verdicts.astro:v15-${index}`}>
+              {outcome.type}
+            </div>
+            <p class="text-sm text-muted-foreground mb-8 leading-relaxed" data-ps={`src/pages/verdicts.astro:v16-${index}`}>
+              {outcome.detail}
+            </p>
+            <div class="pt-6 border-t border-border flex justify-between items-center" data-ps={`src/pages/verdicts.astro:v17-${index}`}>
+              <span class="text-[10px] font-mono text-success font-bold uppercase" data-ps={`src/pages/verdicts.astro:v18-${index}`}>{outcome.status}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </Container>
+  </section>
+
+  <section class="py-24 bg-surface border-t border-border" data-ps="src/pages/verdicts.astro:v19">
+    <Container>
+      <div class="max-w-3xl mx-auto text-center" data-ps="src/pages/verdicts.astro:v20">
+        <h2 class="text-h2 font-black mb-8 leading-tight" data-ps="src/pages/verdicts.astro:v21">DO NOT SETTLE FOR LESS THAN THE PHYSICS DICTATE.</h2>
+        <p class="text-xl text-muted-foreground mb-12" data-ps="src/pages/verdicts.astro:v22">
+          Insurance adjusters use software to undervalue your claim. We use engineers to prove the full extent of your loss.
+        </p>
+        <a href="/#contact" class="inline-block px-10 py-5 bg-primary text-primary-foreground font-black font-display uppercase tracking-widest hover:bg-primary-hover transition-all hover-lift" data-ps="src/pages/verdicts.astro:v23">
+          Request Evaluation
+        </a>
+      </div>
+    </Container>
+  </section>
+</BaseLayout>

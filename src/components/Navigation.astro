@@ -1,0 +1,204 @@
+---
+// Navigation - working mobile menu + scroll glassmorphism
+import { getCollection } from 'astro:content';
+const services = (await getCollection('services', ({data}) => !data.draft)).sort((a,b) => a.data.order - b.data.order);
+import Container from '@/components/Container.astro';
+import { SITE } from '@/config/site';
+
+export interface Props {
+  logo?: string;
+}
+
+const { logo = SITE.name } = Astro.props;
+---
+
+<header id="navbar" class="sticky top-0 z-50 bg-background/0 transition-all duration-300" data-ps="src/components/Navigation.astro:dt8k87">
+  <!-- Top-down scrim for initial transparency -->
+  <div class="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-black/80 to-transparent pointer-events-none opacity-100 transition-opacity duration-500" id="nav-scrim" data-ps="src/components/Navigation.astro:gqvsde"></div>
+  
+  <nav class="py-5 relative z-10" data-ps="src/components/Navigation.astro:m59h3b">
+    <Container class="flex justify-between items-center">
+      <a href="/" class="flex items-center group no-underline" data-ps="src/components/Navigation.astro:kd8n5y">
+        <img src="https://pagesmith-cdn.com/20632c09/images/ggl-logo-pc-descrip-white-clear-300-06c094-300.webp" alt="Garces, Grabler & LeBrocq" width="300" height="164" class="h-10 md:h-12 w-auto" data-ps="src/components/Navigation.astro:i2om6g" />
+      </a>
+
+      <div class="flex items-center gap-10" data-ps="src/components/Navigation.astro:gqvsdc">
+        <div class="hidden md:flex gap-6 items-center" data-ps="src/components/Navigation.astro:gqvsdd">
+          <a href="/" class="text-[11px] font-bold font-display uppercase tracking-widest no-underline text-foreground hover:text-primary transition-colors" data-ps="src/components/Navigation.astro:kd8n5h">Home</a>
+          <div class="relative group/dropdown" data-ps="src/components/Navigation.astro:dt1">
+            <button class="flex items-center gap-1 text-[11px] font-bold font-display uppercase tracking-widest no-underline text-foreground hover:text-primary transition-colors cursor-default" data-ps="src/components/Navigation.astro:dt2">
+              Analysis
+              <svg class="w-3 h-3 transition-transform group-hover/dropdown:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="absolute left-0 top-full pt-4 opacity-0 invisible group-hover/dropdown:opacity-100 group-hover/dropdown:visible transition-all duration-200 z-50 min-w-[220px]" data-ps="src/components/Navigation.astro:dt3">
+              <div class="bg-surface border border-border p-2 shadow-2xl" data-ps="src/components/Navigation.astro:dt4">
+                {services.map(service => (<a href={`/${service.id}/`} class="block px-4 py-3 text-xs font-bold uppercase tracking-widest text-foreground hover:text-primary no-underline">{service.data.title}</a>))}
+              </div>
+            </div>
+          </div>
+          <a href="/federal-regulations" class="text-[11px] font-bold font-display uppercase tracking-widest no-underline text-foreground hover:text-primary transition-colors" data-ps="src/components/Navigation.astro:kd8n5x">Regulations</a>
+          <a href="/verdicts" class="text-[11px] font-bold font-display uppercase tracking-widest no-underline text-foreground hover:text-primary transition-colors" data-ps="src/components/Navigation.astro:kd8n5x">Verdicts</a>
+          <div class="relative group/resources" data-ps="src/components/Navigation.astro:res1">
+            <button class="flex items-center gap-1 text-[11px] font-bold font-display uppercase tracking-widest no-underline text-foreground hover:text-primary transition-colors cursor-default" data-ps="src/components/Navigation.astro:res2">
+              Resources
+              <svg class="w-3 h-3 transition-transform group-hover/resources:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="absolute -left-20 top-full pt-4 opacity-0 invisible group-hover/resources:opacity-100 group-hover/resources:visible transition-all duration-200 z-50 min-w-[480px]" data-ps="src/components/Navigation.astro:res3">
+              <div class="bg-surface border border-border p-6 shadow-2xl grid grid-cols-2 gap-6" data-ps="src/components/Navigation.astro:res4">
+                <a href="/local-jurisdiction" class="group/item no-underline flex items-start gap-4" data-ps="src/components/Navigation.astro:res5">
+                  <div class="mt-1 p-2 bg-background border border-border group-hover/item:border-primary/50 group-hover/item:bg-primary/5 transition-colors" data-ps="src/components/Navigation.astro:res-ico1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                  </div>
+                  <div data-ps="src/components/Navigation.astro:gqvsdb">
+                    <span class="block text-[10px] font-bold font-display uppercase tracking-widest text-primary mb-1 group-hover/item:translate-x-1 transition-transform" data-ps="src/components/Navigation.astro:i2om6b">Venues</span>
+                    <p class="text-[11px] leading-relaxed text-muted-foreground m-0 lowercase first-letter:uppercase" data-ps="src/components/Navigation.astro:klhv6n">Navigating {SITE.location.state} courtrooms and jurisdictional advantages.</p>
+                  </div>
+                </a>
+                <a href="/litigation-process" class="group/item no-underline flex items-start gap-4" data-ps="src/components/Navigation.astro:res6">
+                  <div class="mt-1 p-2 bg-background border border-border group-hover/item:border-primary/50 group-hover/item:bg-primary/5 transition-colors" data-ps="src/components/Navigation.astro:res-ico2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary"><path d="m9 12 2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+                  </div>
+                  <div data-ps="src/components/Navigation.astro:gqvsdc">
+                    <span class="block text-[10px] font-bold font-display uppercase tracking-widest text-primary mb-1 group-hover/item:translate-x-1 transition-transform" data-ps="src/components/Navigation.astro:i2om6c">Process</span>
+                    <p class="text-[11px] leading-relaxed text-muted-foreground m-0 lowercase first-letter:uppercase" data-ps="src/components/Navigation.astro:klhv6m">Our forensic litigation roadmap from crash to verdict.</p>
+                  </div>
+                </a>
+                <a href="/case-studies" class="group/item no-underline flex items-start gap-4" data-ps="src/components/Navigation.astro:res7">
+                  <div class="mt-1 p-2 bg-background border border-border group-hover/item:border-primary/50 group-hover/item:bg-primary/5 transition-colors" data-ps="src/components/Navigation.astro:res-ico3">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+                  </div>
+                  <div data-ps="src/components/Navigation.astro:gqvsdd">
+                    <span class="block text-[10px] font-bold font-display uppercase tracking-widest text-primary mb-1 group-hover/item:translate-x-1 transition-transform" data-ps="src/components/Navigation.astro:i2om6d">Case Studies</span>
+                    <p class="text-[11px] leading-relaxed text-muted-foreground m-0 lowercase first-letter:uppercase" data-ps="src/components/Navigation.astro:klhv6l">Deep-dive analysis into multi-million dollar recoveries.</p>
+                  </div>
+                </a>
+                <a href="/blog" class="group/item no-underline flex items-start gap-4" data-ps="src/components/Navigation.astro:res8">
+                  <div class="mt-1 p-2 bg-background border border-border group-hover/item:border-primary/50 group-hover/item:bg-primary/5 transition-colors" data-ps="src/components/Navigation.astro:res-ico4">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg>
+                  </div>
+                  <div data-ps="src/components/Navigation.astro:gqvsde">
+                    <span class="block text-[10px] font-bold font-display uppercase tracking-widest text-primary mb-1 group-hover/item:translate-x-1 transition-transform" data-ps="src/components/Navigation.astro:i2om6e">Intel</span>
+                    <p class="text-[11px] leading-relaxed text-muted-foreground m-0 lowercase first-letter:uppercase" data-ps="src/components/Navigation.astro:klhv6k">Critical updates on trucking industry trends and safety tech.</p>
+                  </div>
+                </a>
+                <a href="/site-identity" class="group/item no-underline flex items-start gap-4" data-ps="src/components/Navigation.astro:res9">
+                  <div class="mt-1 p-2 bg-background border border-border group-hover/item:border-primary/50 group-hover/item:bg-primary/5 transition-colors" data-ps="src/components/Navigation.astro:res-ico5">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary"><path d="M12.22 2h3.22a2 2 0 0 1 2 2v3.22a2 2 0 0 1-2 2h-3.22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Z"/><path d="M7 2h3.22a2 2 0 0 1 2 2v3.22a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Z"/><path d="M12.22 10.78h3.22a2 2 0 0 1 2 2v3.22a2 2 0 0 1-2 2h-3.22a2 2 0 0 1-2-2v-3.22a2 2 0 0 1 2-2Z"/><path d="M7 10.78h3.22a2 2 0 0 1 2 2v3.22a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-3.22a2 2 0 0 1 2-2Z"/></svg>
+                  </div>
+                  <div data-ps="src/components/Navigation.astro:gqvsdf">
+                    <div class="flex items-center gap-2 mb-1" data-ps="src/components/Navigation.astro:res9-title">
+                      <span class="block text-[10px] font-bold font-display uppercase tracking-widest text-primary group-hover/item:translate-x-1 transition-transform" data-ps="src/components/Navigation.astro:i2om6f">Identity</span>
+                      <span class="text-[8px] px-1 border border-primary/30 text-primary" data-ps="src/components/Navigation.astro:res9-admin">ADMIN</span>
+                    </div>
+                    <p class="text-[11px] leading-relaxed text-muted-foreground m-0 lowercase first-letter:uppercase" data-ps="src/components/Navigation.astro:klhv6j">Visual manifest of site configuration and brand identity.</p>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+          <a href="/team" class="text-[11px] font-bold font-display uppercase tracking-widest no-underline text-foreground hover:text-primary transition-colors" data-ps="src/components/Navigation.astro:team-link">Team</a>
+          <a href="/#faq" class="text-[11px] font-bold font-display uppercase tracking-widest no-underline text-foreground hover:text-primary transition-colors" data-ps="src/components/Navigation.astro:kd8n5u">FAQ</a>
+          <a href="tel:8886205852" class="px-5 py-2 bg-primary text-primary-foreground text-[11px] font-black font-display uppercase tracking-widest hover:bg-primary-hover transition-all hover-lift no-underline" data-ps="src/components/Navigation.astro:kd8n5t">
+            Call 24/7 (888) 620-5852
+          </a>
+        </div>
+
+        <button
+          id="mobile-menu-button"
+          type="button"
+          class="md:hidden p-2 text-foreground hover:text-primary transition-colors"
+          aria-label="Toggle menu"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+         data-ps="src/components/Navigation.astro:5ds1">
+          <svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+    </Container>
+  </nav>
+
+  <div
+    id="mobile-menu"
+    class="hidden md:hidden overflow-hidden bg-background border-t border-border"
+    role="navigation"
+    aria-label="Mobile navigation"
+   data-ps="src/components/Navigation.astro:gqvsde">
+    <nav class="flex flex-col py-4 px-6 gap-0" data-ps="src/components/Navigation.astro:m59h3a">
+      <a href="/" class="text-muted-foreground font-bold py-3 no-underline hover:text-foreground transition-colors text-xs uppercase tracking-widest" data-ps="src/components/Navigation.astro:kd8n5u">Home</a>
+      <div class="border-t border-border/50 my-1" data-ps="src/components/Navigation.astro:gqvsdd"></div>
+      {services.map(service => (<a href={`/${service.id}/`} class="block px-4 py-3 text-xs font-bold uppercase tracking-widest text-foreground hover:text-primary no-underline">{service.data.title}</a>))}
+      <div class="border-t border-border/50 my-1" data-ps="src/components/Navigation.astro:gqvsde"></div>
+      <a href="/federal-regulations" class="text-muted-foreground font-bold py-3 no-underline hover:text-foreground transition-colors text-xs uppercase tracking-widest" data-ps="src/components/Navigation.astro:kd8n5t">Regulations</a>
+      <a href="/verdicts" class="text-muted-foreground font-bold py-3 no-underline hover:text-foreground transition-colors text-xs uppercase tracking-widest" data-ps="src/components/Navigation.astro:kd8n5t">Verdicts</a>
+      <a href="/team" class="text-muted-foreground font-bold py-3 no-underline hover:text-foreground transition-colors text-xs uppercase tracking-widest" data-ps="src/components/Navigation.astro:team-link-mobile">Team</a>
+      <div class="border-t border-border/50 my-1" data-ps="src/components/Navigation.astro:mob-res-sep"></div>
+      <div class="py-2 text-[10px] font-bold text-primary uppercase tracking-[0.2em]" data-ps="src/components/Navigation.astro:mob-res-label">Resources</div>
+      <a href="/local-jurisdiction" class="text-muted-foreground font-bold py-3 no-underline hover:text-foreground transition-colors text-xs uppercase tracking-widest pl-4" data-ps="src/components/Navigation.astro:kd8n5t">Venues</a>
+      <a href="/litigation-process" class="text-muted-foreground font-bold py-3 no-underline hover:text-foreground transition-colors text-xs uppercase tracking-widest pl-4" data-ps="src/components/Navigation.astro:kd8n5s">Process</a>
+      <a href="/case-studies" class="text-muted-foreground font-bold py-3 no-underline hover:text-foreground transition-colors text-xs uppercase tracking-widest pl-4" data-ps="src/components/Navigation.astro:case-studies-link-mobile">Case Studies</a>
+      <a href="/blog" class="text-muted-foreground font-bold py-3 no-underline hover:text-foreground transition-colors text-xs uppercase tracking-widest pl-4" data-ps="src/components/Navigation.astro:kd8n5r">Intel</a>
+      <a href="/site-identity" class="text-muted-foreground font-bold py-3 no-underline hover:text-foreground transition-colors text-xs uppercase tracking-widest pl-4" data-ps="src/components/Navigation.astro:site-identity-mobile">Dashboard</a>
+      <a href="/#faq" class="text-muted-foreground font-bold py-3 no-underline hover:text-foreground transition-colors text-xs uppercase tracking-widest" data-ps="src/components/Navigation.astro:kd8n5r">FAQ</a>
+      <a href="/#contact" class="text-muted-foreground font-bold py-3 no-underline hover:text-foreground transition-colors text-xs uppercase tracking-widest" data-ps="src/components/Navigation.astro:kd8n5q">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<script is:inline>
+  const navbar = document.getElementById('navbar');
+  const mobileMenuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const menuIconOpen = document.getElementById('menu-icon-open');
+  const menuIconClose = document.getElementById('menu-icon-close');
+
+  const navScrim = document.getElementById('nav-scrim');
+  
+  function updateNavbar() {
+    if (window.scrollY > 50) {
+      navbar?.classList.add('bg-surface/95', 'backdrop-blur-md', 'shadow-xl', 'border-b', 'border-border');
+      navbar?.classList.remove('bg-background/0');
+      navScrim?.classList.add('opacity-0');
+    } else {
+      navbar?.classList.remove('bg-surface/95', 'backdrop-blur-md', 'shadow-xl', 'border-b', 'border-border');
+      navbar?.classList.add('bg-background/0');
+      navScrim?.classList.remove('opacity-0');
+    }
+  }
+  window.addEventListener('scroll', updateNavbar, { passive: true });
+  updateNavbar();
+
+  function toggleMenu() {
+    const isOpen = !mobileMenu?.classList.contains('hidden');
+    if (isOpen) {
+      mobileMenu?.classList.add('hidden');
+      menuIconOpen?.classList.remove('hidden');
+      menuIconClose?.classList.add('hidden');
+      mobileMenuButton?.setAttribute('aria-expanded', 'false');
+    } else {
+      mobileMenu?.classList.remove('hidden');
+      menuIconOpen?.classList.add('hidden');
+      menuIconClose?.classList.remove('hidden');
+      mobileMenuButton?.setAttribute('aria-expanded', 'true');
+    }
+  }
+
+  mobileMenuButton?.addEventListener('click', toggleMenu);
+  mobileMenu?.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu?.classList.add('hidden');
+      menuIconOpen?.classList.remove('hidden');
+      menuIconClose?.classList.add('hidden');
+      mobileMenuButton?.setAttribute('aria-expanded', 'false');
+    });
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !mobileMenu?.classList.contains('hidden')) {
+      toggleMenu();
+    }
+  });
+</script>

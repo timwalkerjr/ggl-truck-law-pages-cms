@@ -1,0 +1,18 @@
+[build]
+  command = "pnpm build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"
+  PUBLIC_NOINDEX = "true"
+  PUBLIC_FORMSPREE_ENDPOINT = "https://formspree.io/f/mvkgarwl"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
+[[redirects]]
+  from = "/sitemap.xml"
+  to = "/sitemap-index.xml"
+  status = 301

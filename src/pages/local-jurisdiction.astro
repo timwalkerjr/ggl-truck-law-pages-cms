@@ -1,0 +1,90 @@
+---
+import { SITE } from '@/config/site';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Container from '@/components/Container.astro';
+import Jurisdiction from '@/components/home/Jurisdiction.astro';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: `${SITE.location.state} Court Jurisdiction | ${SITE.name}`,
+  description: `Regional intelligence on ${SITE.location.state} courts handling high-stakes truck accident litigation.`,
+  url: new URL('/local-jurisdiction', SITE.url).toString(),
+};
+
+const courts = [
+  {
+    name: `${SITE.location.county} Superior Court`,
+    location: `${SITE.location.city}, ${SITE.location.state}`,
+    intel: `The high-volume hub for ${SITE.location.region} litigation. We have intimate knowledge of the Civil Division calendars and judicial preferences.`
+  },
+  {
+    name: 'Federal Court - District',
+    location: 'Federal Venue',
+    intel: 'Specialized venue for interstate carrier disputes and diversity jurisdiction cases. Requires advanced knowledge of Federal Rules.'
+  }
+];
+---
+
+<BaseLayout 
+  title={`${SITE.location.state} Truck Accident Court Jurisdiction | ${SITE.name}`} 
+  description={`Strategic intelligence on ${SITE.location.state} judicial venues for semi-truck accident lawsuits, including ${SITE.location.county} and Federal courts.`} 
+  jsonLd={jsonLd}
+>
+  <div class="pt-32 pb-20 bg-background border-b border-border" data-ps="src/pages/local-jurisdiction.astro:g6yaw3">
+    <Container>
+      <div class="max-w-4xl" data-ps="src/pages/local-jurisdiction.astro:g6yaw4">
+        <div class="inline-flex items-center gap-3 px-3 py-1 bg-surface border border-primary/30 mb-8" data-ps="src/pages/local-jurisdiction.astro:g6yaw5">
+          <span class="flex h-2 w-2 rounded-full bg-primary animate-pulse" data-ps="src/pages/local-jurisdiction.astro:lio9xn"></span>
+          <span class="text-[10px] font-mono font-bold tracking-[0.2em] text-primary uppercase" data-ps="src/pages/local-jurisdiction.astro:lio9xm">Regional Judicial Intelligence</span>
+        </div>
+        <h1 class="text-h1 font-black mb-8 leading-none uppercase" data-ps="src/pages/local-jurisdiction.astro:ofider">{SITE.location.state} COURT <span class="text-primary" data-ps="src/pages/local-jurisdiction.astro:lio9xl">JURISDICTION</span></h1>
+        <p class="text-xl text-muted-foreground leading-relaxed max-w-2xl" data-ps="src/pages/local-jurisdiction.astro:jlnsde">
+          Where your case is filed matters. We navigate the specific procedural nuances and judicial temperaments of {SITE.location.state}'s most critical litigation venues.
+        </p>
+      </div>
+    </Container>
+  </div>
+
+  <Jurisdiction />
+
+  <section class="py-24 bg-background" data-ps="src/pages/local-jurisdiction.astro:g0u96a">
+    <Container>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12" data-ps="src/pages/local-jurisdiction.astro:g6yaw6">
+        {courts.map((court, index) => (
+          <div class="p-8 bg-surface border border-border relative group" data-ps={`src/pages/local-jurisdiction.astro:g6yaw7-${index}`}>
+            <div class="absolute top-0 right-0 p-4 font-mono text-[8px] text-muted-foreground/20 uppercase" data-ps={`src/pages/local-jurisdiction.astro:g6yaw8-${index}`}>VENUE_ID_{100 + index}</div>
+            <h3 class="text-2xl font-black font-display text-foreground uppercase mb-2" data-ps={`src/pages/local-jurisdiction.astro:h8ru57-${index}`}>
+              {court.name}
+            </h3>
+            <div class="text-[10px] font-mono text-primary font-bold uppercase tracking-widest mb-6" data-ps={`src/pages/local-jurisdiction.astro:g6yaw9-${index}`}>
+              {court.location}
+            </div>
+            <p class="text-muted-foreground text-sm leading-relaxed" data-ps={`src/pages/local-jurisdiction.astro:jlnsdd-${index}`}>
+              {court.intel}
+            </p>
+          </div>
+        ))}
+      </div>
+    </Container>
+  </section>
+
+  <section class="py-24 bg-surface border-t border-border overflow-hidden relative" data-ps="src/pages/local-jurisdiction.astro:2t3fgm">
+    <Container>
+      <div class="max-w-3xl mx-auto text-center" data-ps="src/pages/local-jurisdiction.astro:g6yawa">
+        <h2 class="text-h2 font-black mb-8 leading-tight uppercase" data-ps="src/pages/local-jurisdiction.astro:vx6rcs">WE LITIGATE ACROSS ALL MAJOR {SITE.location.state} CORRIDORS.</h2>
+        <p class="text-xl text-muted-foreground mb-12" data-ps="src/pages/local-jurisdiction.astro:jlnsdc">
+          From the {SITE.location.city} logistics hubs to the interstate highways, we provide high-stakes representation for those injured in {SITE.location.state}.
+        </p>
+        <div class="flex flex-wrap justify-center gap-6" data-ps="src/pages/local-jurisdiction.astro:g6yawb">
+          <a href="/#contact" class="px-10 py-5 bg-primary text-primary-foreground font-black font-display uppercase tracking-widest hover:bg-primary-hover transition-all hover-lift" data-ps="src/pages/local-jurisdiction.astro:chpvoa">
+            Start Case Intake
+          </a>
+          <a href={`tel:${SITE.contact.phone.replace(/[^0-9]/g, '')}`} class="px-10 py-5 border-2 border-border text-foreground font-black font-display uppercase tracking-widest hover:bg-background transition-all hover-lift" data-ps="src/pages/local-jurisdiction.astro:chpvo9">
+            Call HQ
+          </a>
+        </div>
+      </div>
+    </Container>
+  </section>
+</BaseLayout>

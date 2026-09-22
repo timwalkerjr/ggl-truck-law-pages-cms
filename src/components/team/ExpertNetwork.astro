@@ -1,0 +1,68 @@
+---
+import Container from '@/components/Container.astro';
+
+const experts = [
+  {
+    title: "Forensic Engineering",
+    role: "Mechanical Analysis",
+    description: "Specialists in heavy vehicle dynamics, brake system failure, and ELD tampering detection. They deconstruct the mechanical reality of the impact."
+  },
+  {
+    title: "Medical Consultants",
+    role: "Injury Quantification",
+    description: "Board-certified neurologists and orthopedic surgeons who translate complex trauma into clear, irrefutable evidence for life-care planning."
+  },
+  {
+    title: "Accident Reconstruction",
+    role: "Physics & Simulation",
+    description: "Experts utilizing 3D point-cloud mapping and time-distance simulations to prove liability where the defense attempts to obscure it."
+  },
+  {
+    title: "Regulatory Compliance",
+    role: "DOT/FMCSA Analysis",
+    description: "Former DOT auditors and safety directors who identify systematic failures in carrier hiring, training, and supervision protocols."
+  }
+];
+---
+
+<section class="py-24 md:py-36 bg-dark-background border-y border-border overflow-hidden" data-ps="src/components/team/ExpertNetwork.astro:1">
+  <Container data-ps="src/components/team/ExpertNetwork.astro:2">
+    <div class="grid lg:grid-cols-12 gap-16 items-start mb-24" data-ps="src/components/team/ExpertNetwork.astro:3">
+      <div class="lg:col-span-5" data-ps="src/components/team/ExpertNetwork.astro:4">
+        <div class="inline-flex items-center gap-3 px-3 py-1 bg-surface border border-primary/30 mb-8" data-ps="src/components/team/ExpertNetwork.astro:5">
+          <span class="text-[10px] font-mono font-bold tracking-[0.2em] text-primary uppercase" data-ps="src/components/team/ExpertNetwork.astro:6">EXHIBIT: TECHNICAL NETWORK</span>
+        </div>
+        <h2 class="text-h2 font-black text-foreground mb-8 uppercase tracking-tight" data-ps="src/components/team/ExpertNetwork.astro:7">
+          THE <span class="text-primary" data-ps="src/components/team/ExpertNetwork.astro:8">EXPERT</span> ALLIANCE.
+        </h2>
+        <p class="text-lg text-muted-foreground leading-relaxed italic border-l-2 border-primary/50 pl-6" data-ps="src/components/team/ExpertNetwork.astro:9">
+          "Commercial litigation is won at the intersection of law and physics. We don't just hire experts; we integrate them into the very foundation of our strategy."
+        </p>
+      </div>
+      <div class="lg:col-span-7 pt-4" data-ps="src/components/team/ExpertNetwork.astro:10">
+        <p class="text-xl text-foreground leading-relaxed" data-ps="src/components/team/ExpertNetwork.astro:11">
+          Winning high-stakes truck accident cases requires proving what corporate carriers try to hide. We collaborate with a Tier-1 network of technical consultants to deconstruct every millisecond of a crash and every violation of federal safety law.
+        </p>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8" data-ps="src/components/team/ExpertNetwork.astro:12">
+      {experts.map((expert, index) => (
+        <div class="group bg-surface/50 border border-border p-8 flex flex-col justify-between hover:border-primary/50 transition-colors relative" data-ps="src/components/team/ExpertNetwork.astro:13">
+          <div data-ps={`src/components/team/ExpertNetwork.astro:mw38al-${index}`}>
+            <div class="flex items-center justify-between mb-6 pb-4 border-b border-border/60" data-ps={`src/components/team/ExpertNetwork.astro:mw38ak-${index}`}>
+              <span class="text-[10px] font-mono text-primary font-bold uppercase tracking-widest" data-ps={`src/components/team/ExpertNetwork.astro:1lqq8n-${index}`}>SPEC_{String(index + 1).padStart(2, '0')}</span>
+              <span class="w-2 h-2 bg-primary/40 group-hover:bg-primary transition-colors" data-ps={`src/components/team/ExpertNetwork.astro:1lqq8m-${index}`}></span>
+            </div>
+            
+            <h3 class="text-xl font-black text-foreground mb-1 uppercase" data-ps="src/components/team/ExpertNetwork.astro:19">{expert.title}</h3>
+            <div class="text-[10px] font-mono text-primary font-bold tracking-widest mb-4 uppercase" data-ps="src/components/team/ExpertNetwork.astro:20">{expert.role}</div>
+            <p class="text-sm text-muted-foreground leading-relaxed" data-ps="src/components/team/ExpertNetwork.astro:21">
+              {expert.description}
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </Container>
+</section>

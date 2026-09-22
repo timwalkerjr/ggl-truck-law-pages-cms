@@ -1,0 +1,98 @@
+---
+import { SITE } from '@/config/site';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Container from '@/components/Container.astro';
+import Regulatory from '@/components/home/Regulatory.astro';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: `Federal Trucking Regulations | ${SITE.name}`,
+  description: 'Detailed analysis of FMCSA federal motor carrier safety regulations used in NJ truck accident litigation.',
+  url: new URL('/federal-regulations', SITE.url).toString(),
+};
+
+const regulations = [
+  {
+    code: '49 CFR § 390.13',
+    title: 'Aiding or Abetting Violations',
+    detail: 'Carriers cannot encourage or permit drivers to violate federal safety rules. We prove "systemic negligence" when dispatchers pressure drivers to exceed HOS limits.'
+  },
+  {
+    code: '49 CFR § 391.11',
+    title: 'General Qualifications of Drivers',
+    detail: 'Carriers must ensure drivers meet strict medical, physical, and background standards. We audit driver qualification files for "red flags" ignored at hire.'
+  },
+  {
+    code: '49 CFR § 392.3',
+    title: 'Ill or Fatigued Operator',
+    detail: 'Strict prohibition against driving while impaired by fatigue or illness. We cross-reference medical records with driving logs to expose violations.'
+  },
+  {
+    code: '49 CFR § 393',
+    title: 'Parts & Accessories Necessary',
+    detail: 'Technical requirements for lights, brakes, and cargo securement. Any failure here establishes per se negligence in a commercial collision.'
+  }
+];
+---
+
+<BaseLayout 
+  title={`FMCSA Federal Trucking Regulations | NJ Litigation | ${SITE.name}`} 
+  description="Technical analysis of federal trucking safety codes and HOS regulations used to win New Brunswick semi-truck accident trials." 
+  jsonLd={jsonLd}
+>
+  <div class="pt-32 pb-20 bg-background border-b border-border" data-ps="src/pages/federal-regulations.astro:f1">
+    <Container>
+      <div class="max-w-4xl" data-ps="src/pages/federal-regulations.astro:f2">
+        <div class="inline-flex items-center gap-3 px-3 py-1 bg-surface border border-primary/30 mb-8" data-ps="src/pages/federal-regulations.astro:f3">
+          <span class="flex h-2 w-2 rounded-full bg-primary animate-pulse" data-ps="src/pages/federal-regulations.astro:f4"></span>
+          <span class="text-[10px] font-mono font-bold tracking-[0.2em] text-primary uppercase" data-ps="src/pages/federal-regulations.astro:f5">Statutory Intelligence Matrix</span>
+        </div>
+        <h1 class="text-h1 font-black mb-8 leading-none" data-ps="src/pages/federal-regulations.astro:f6">FEDERAL <span class="text-primary" data-ps="src/pages/federal-regulations.astro:f7">REGULATIONS</span></h1>
+        <p class="text-xl text-muted-foreground leading-relaxed max-w-2xl" data-ps="src/pages/federal-regulations.astro:f8">
+          Commercial truck litigation is not governed by standard traffic laws. We utilize the full weight of the Federal Motor Carrier Safety Regulations (FMCSR) to establish carrier liability.
+        </p>
+      </div>
+    </Container>
+  </div>
+
+  <Regulatory />
+
+  <section class="py-24 bg-background" data-ps="src/pages/federal-regulations.astro:f9">
+    <Container>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12" data-ps="src/pages/federal-regulations.astro:f10">
+        {regulations.map((reg, index) => (
+          <div class="p-8 bg-surface border-l-4 border-primary" data-ps={`src/pages/federal-regulations.astro:f11-${index}`}>
+            <div class="text-primary font-mono text-xs font-bold mb-4" data-ps={`src/pages/federal-regulations.astro:f12-${index}`}>
+              {reg.code}
+            </div>
+            <h3 class="text-2xl font-black font-display text-foreground uppercase mb-4" data-ps={`src/pages/federal-regulations.astro:f13-${index}`}>
+              {reg.title}
+            </h3>
+            <p class="text-muted-foreground leading-relaxed" data-ps={`src/pages/federal-regulations.astro:f14-${index}`}>
+              {reg.detail}
+            </p>
+          </div>
+        ))}
+      </div>
+    </Container>
+  </section>
+
+  <section class="py-24 bg-surface border-t border-border" data-ps="src/pages/federal-regulations.astro:f15">
+    <Container>
+      <div class="max-w-3xl mx-auto" data-ps="src/pages/federal-regulations.astro:f16">
+        <div class="p-10 bg-background border border-border relative overflow-hidden" data-ps="src/pages/federal-regulations.astro:f17">
+          <div class="absolute top-0 right-0 p-4 font-mono text-[8px] text-muted-foreground/20 uppercase" data-ps="src/pages/federal-regulations.astro:f18">SYSTEM_SCAN_ACTIVE</div>
+          <h2 class="text-3xl font-black font-display text-foreground mb-6 uppercase leading-none" data-ps="src/pages/federal-regulations.astro:f19">THE BLACK BOX NEVER LIES.</h2>
+          <p class="text-muted-foreground mb-8" data-ps="src/pages/federal-regulations.astro:f20">
+            Carriers often "lose" paper logs after a crash. We secure Event Data Recorders (EDR) and ELD cloud backups to prove HOS violations in court.
+          </p>
+          <a href="/litigation-process" class="inline-flex items-center gap-4 text-primary font-black font-display uppercase tracking-widest hover:gap-6 transition-all group" data-ps="src/pages/federal-regulations.astro:f21">
+            See the litigation process
+            <svg class="w-6 h-6 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </a>
+        </div>
+      </div>
+    </Container>
+  </section>
+</BaseLayout>

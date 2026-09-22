@@ -1,0 +1,69 @@
+---
+  // Footer component - shared across all pages
+  import Container from '@/components/Container.astro';
+  import { SITE } from '@/config/site';
+
+  export interface Props {
+    companyName?: string;
+    companyDescription?: string;
+    copyright?: string;
+  }
+
+  const {
+    companyName = SITE.name,
+    companyDescription = SITE.description,
+    copyright = `© ${new Date().getFullYear()} ${companyName}. All rights reserved.`
+  } = Astro.props;
+---
+
+  <footer class="bg-dark text-dark-foreground py-16 border-t-4 border-primary" data-ps="src/components/Footer.astro:ikmf33">
+    <Container>
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16" data-ps="src/components/Footer.astro:p4vf88">
+        <!-- Company Info -->
+        <div data-ps="src/components/Footer.astro:p4vf89" class="col-span-1 md:col-span-2 pr-0 md:pr-12">
+          <a href="/" class="inline-flex mb-6 no-underline" data-ps="src/components/Footer.astro:logo">
+            <img src="https://pagesmith-cdn.com/20632c09/images/ggl-logo-pc-descrip-white-clear-300-06c094-300.webp" alt="Garces, Grabler & LeBrocq" width="300" height="164" class="h-14 w-auto" data-ps="src/components/Footer.astro:logot1" />
+          </a>
+          <p class="text-sm text-dark-muted mb-4 font-mono leading-relaxed max-w-sm" data-ps="src/components/Footer.astro:euol">{companyDescription}</p>
+          <div class="mt-8 flex gap-4" data-ps="src/components/Footer.astro:p4vf8b">
+            <a href="/#contact" class="px-5 py-3 bg-primary text-primary-foreground text-xs font-black font-display uppercase tracking-widest hover:bg-primary-hover transition-all hover-lift border-2 border-primary hover:border-primary-hover" data-ps="src/components/Footer.astro:7gqc0h">EMERGENCY RESPONSE</a>
+          </div>
+        </div>
+
+        <!-- Analysis & Focus -->
+        <div data-ps="src/components/Footer.astro:p4vf8a">
+          <h2 class="text-xs font-bold font-display uppercase tracking-widest text-primary mb-4" data-ps="src/components/Footer.astro:f0091e">Analysis Vectors</h2>
+          <ul class="list-none p-0 m-0 flex flex-col gap-3">
+            <li data-ps="src/components/Footer.astro:wyji7c"><a href="/jackknife-accidents" class="text-[11px] font-mono uppercase tracking-wider text-dark-muted no-underline hover:text-foreground transition-colors" data-ps="src/components/Footer.astro:7gqc0i">Jackknife Dynamics</a></li>
+            <li data-ps="src/components/Footer.astro:wyji7d"><a href="/underride-collisions" class="text-[11px] font-mono uppercase tracking-wider text-dark-muted no-underline hover:text-foreground transition-colors" data-ps="src/components/Footer.astro:7gqc0j">Underride Impacts</a></li>
+            <li data-ps="src/components/Footer.astro:wyji7e"><a href="/hos-violations" class="text-[11px] font-mono uppercase tracking-wider text-dark-muted no-underline hover:text-foreground transition-colors" data-ps="src/components/Footer.astro:7gqc0k">HOS Exploitation</a></li>
+            <li data-ps="src/components/Footer.astro:wyji7f"><a href="/federal-regulations" class="text-[11px] font-mono uppercase tracking-wider text-dark-muted no-underline hover:text-foreground transition-colors" data-ps="src/components/Footer.astro:7gqc0l">Federal Regulations</a></li>
+            <li data-ps="src/components/Footer.astro:wyji7g"><a href="/verdicts" class="text-[11px] font-mono uppercase tracking-wider text-dark-muted no-underline hover:text-foreground transition-colors" data-ps="src/components/Footer.astro:7gqc0m">Verdicts & Outcomes</a></li>
+            <li data-ps="src/components/Footer.astro:cs-link"><a href="/case-studies" class="text-[11px] font-mono uppercase tracking-wider text-dark-muted no-underline hover:text-foreground transition-colors" data-ps="src/components/Footer.astro:7gqc0cs">Case Studies</a></li>
+          </ul>
+        </div>
+        
+        <!-- Resources -->
+        <div data-ps="src/components/Footer.astro:p4vf8c">
+          <h2 class="text-xs font-bold font-display uppercase tracking-widest text-primary mb-4" data-ps="src/components/Footer.astro:f0091a">Intel & Briefings</h2>
+          <ul class="list-none p-0 m-0 flex flex-col gap-3">
+            <li data-ps="src/components/Footer.astro:wyji8c"><a href="/local-jurisdiction" class="text-[11px] font-mono uppercase tracking-wider text-dark-muted no-underline hover:text-foreground transition-colors" data-ps="src/components/Footer.astro:8o2pe">{SITE.location.state} Jurisdiction</a></li>
+            <li data-ps="src/components/Footer.astro:wyji8d"><a href="/litigation-process" class="text-[11px] font-mono uppercase tracking-wider text-dark-muted no-underline hover:text-foreground transition-colors" data-ps="src/components/Footer.astro:8o2pf">Litigation Process</a></li>
+            <li data-ps="src/components/Footer.astro:wyji8e"><a href="/blog" class="text-[11px] font-mono uppercase tracking-wider text-dark-muted no-underline hover:text-foreground transition-colors" data-ps="src/components/Footer.astro:8o2pg">Intel / Blog</a></li>
+            <li data-ps="src/components/Footer.astro:wyji8f"><a href="/#faq" class="text-[11px] font-mono uppercase tracking-wider text-dark-muted no-underline hover:text-foreground transition-colors" data-ps="src/components/Footer.astro:8o2ph">FAQ Matrix</a></li>
+            <li data-ps="src/components/Footer.astro:wyji8g"><a href="/#contact" class="text-[11px] font-mono uppercase tracking-wider text-dark-muted no-underline hover:text-foreground transition-colors" data-ps="src/components/Footer.astro:8o2pi">Contact Terminal</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Copyright & Legal -->
+      <div class="border-t border-dark-border pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left" data-ps="src/components/Footer.astro:p4vf8b">
+        <p class="text-xs font-mono text-dark-muted uppercase tracking-widest" data-ps="src/components/Footer.astro:euom">{copyright}</p>
+        <div class="flex items-center gap-4" data-ps="src/components/Footer.astro:legals">
+          <a href="/disclaimer" class="text-[10px] font-mono text-dark-muted hover:text-foreground uppercase tracking-widest no-underline transition-colors" data-ps="src/components/Footer.astro:8o2pj">Disclaimer</a>
+          <span class="text-dark-muted/50" data-ps="src/components/Footer.astro:hzwfpb">•</span>
+          <a href="/privacy-policy" class="text-[10px] font-mono text-dark-muted hover:text-foreground uppercase tracking-widest no-underline transition-colors" data-ps="src/components/Footer.astro:8o2pk">Privacy Policy</a>
+        </div>
+      </div>
+    </Container>
+  </footer>

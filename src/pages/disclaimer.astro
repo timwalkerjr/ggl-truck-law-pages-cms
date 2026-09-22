@@ -1,0 +1,41 @@
+---
+import { SITE } from '@/config/site';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Container from '@/components/Container.astro';
+---
+
+<BaseLayout
+  title={`Disclaimer | ${SITE.name}`}
+  description="Legal disclaimer and information regarding the use of this website."
+  type="website"
+>
+  <div class="bg-background pt-32 pb-24 border-b border-border" data-ps="src/pages/disclaimer.astro:fvgi8h">
+    <Container>
+      <div class="max-w-3xl" data-ps="src/pages/disclaimer.astro:fvgi8g">
+        <div class="flex items-center gap-3 mb-6 reveal" data-ps="src/pages/disclaimer.astro:fvgi8f">
+          <span class="text-primary font-mono text-sm tracking-widest uppercase" data-ps="src/pages/disclaimer.astro:ybtwsv">Exhibit // 09</span>
+          <div class="h-[1px] bg-primary/30 flex-1" data-ps="src/pages/disclaimer.astro:fvgi8e"></div>
+        </div>
+        <h1 class="text-4xl md:text-5xl font-black font-display uppercase tracking-tighter mb-6 reveal" data-ps="src/pages/disclaimer.astro:s3fu6j">Legal Disclaimer</h1>
+      </div>
+    </Container>
+  </div>
+
+  <section class="py-20 bg-surface" data-ps="src/pages/disclaimer.astro:i1uyva">
+    <Container>
+      <div class="max-w-3xl prose prose-invert prose-p:font-mono prose-p:text-sm prose-p:leading-relaxed prose-headings:font-display prose-headings:tracking-tight prose-headings:uppercase prose-h2:text-primary" data-ps="src/pages/disclaimer.astro:fvgi8d">
+        <h2 data-ps="src/pages/disclaimer.astro:x9p91m">No Attorney-Client Relationship</h2>
+        <p data-ps="src/pages/disclaimer.astro:tvazqg">The information provided on this website does not, and is not intended to, constitute legal advice; instead, all information, content, and materials available on this site are for general informational purposes only. Use of, and access to, this website or any of the links or resources contained within the site do not create an attorney-client relationship between the reader, user, or browser and Garces, Grabler & LeBrocq or its attorneys.</p>
+        
+        <h2 data-ps="src/pages/disclaimer.astro:skhhbi">Past Results Do Not Guarantee Future Outcomes</h2>
+        <p data-ps="src/pages/disclaimer.astro:tvazqf">Information on this website may include descriptions of successful lawsuits, verdicts, or settlements handled by Garces, Grabler & LeBrocq. These descriptions are meant only to provide information about the activities and experience of our attorneys. They are not intended as a guarantee that the same or similar results can be obtained in every matter undertaken by our attorneys; and you should not assume that a similar result can be obtained in a legal matter of interest to you.</p>
+
+        <h2 data-ps="src/pages/disclaimer.astro:skhhbh">Jurisdiction</h2>
+        <p data-ps="src/pages/disclaimer.astro:tvazqe">Garces, Grabler & LeBrocq attorneys are licensed to practice law in the State of New Jersey. Our attorneys do not seek to practice law in states, territories and foreign countries where they are not properly authorized to do so. This website is not intended to solicit clients in any jurisdiction where the site or its content would be contrary to local law or rules of professional conduct.</p>
+
+        <h2 data-ps="src/pages/disclaimer.astro:skhhbg">Confidentiality</h2>
+        <p data-ps="src/pages/disclaimer.astro:tvazqd">While we welcome your inquiries, please note that any communication with Garces, Grabler & LeBrocq via email through this site or through our contact forms may not be secure, and any such communication will not be treated as strictly confidential unless you already have an attorney-client relationship with us. Do not send sensitive or confidential information until such a relationship is established.</p>
+      </div>
+    </Container>
+  </section>
+</BaseLayout>

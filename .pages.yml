@@ -1,0 +1,100 @@
+media:
+  input: public/uploads
+  output: /uploads
+  categories: [image]
+
+content:
+  - name: verdicts
+    label: Verdicts & Settlements
+    type: collection
+    path: src/content/verdicts
+    format: json
+    filename: '{primary}.json'
+    view:
+      fields: [title, amount, featured, order, draft]
+      primary: title
+      sort: order
+      order: asc
+    fields:
+      - { name: title, label: Internal title, type: string, required: true }
+      - { name: amount, label: Recovery amount (display text), type: string, required: true }
+      - { name: venue, label: Location / venue, type: string, required: true }
+      - { name: type, label: Injury / case type, type: string }
+      - { name: detail, label: Case summary, type: text, required: true }
+      - { name: status, label: Outcome, type: string, required: true }
+      - { name: featured, label: Featured on homepage, type: boolean, default: false }
+      - { name: order, label: Display order (lowest first), type: number, default: 0 }
+      - { name: draft, label: Draft (hide from website), type: boolean, default: true }
+
+  - name: team
+    label: Team
+    type: collection
+    path: src/content/team
+    format: yaml-frontmatter
+    filename: '{primary}.md'
+    view:
+      primary: title
+      fields: [title, jobTitle, order, draft]
+      sort: order
+      order: asc
+    fields:
+      - { name: title, label: Full name, type: string, required: true }
+      - { name: jobTitle, label: Role, type: string, required: true }
+      - { name: image, label: Portrait / team image, type: image, required: true }
+      - { name: imageAlt, label: Image description, type: string }
+      - { name: body, label: Biography, type: rich-text }
+      - { name: order, label: Display order (lowest first), type: number, default: 0 }
+      - { name: draft, label: Draft (hide from website), type: boolean, default: true }
+
+  - name: faq
+    label: Frequently Asked Questions
+    type: collection
+    path: src/content/faq
+    format: json
+    filename: '{primary}.json'
+    view:
+      primary: title
+      fields: [title, order, draft]
+      sort: order
+      order: asc
+    fields:
+      - { name: title, label: Question, type: string, required: true }
+      - { name: answer, label: Answer, type: text, required: true }
+      - { name: order, label: Display order (lowest first), type: number, default: 0 }
+      - { name: draft, label: Draft (hide from website), type: boolean, default: true }
+
+  - name: services
+    label: Legal Services
+    type: collection
+    path: src/content/services
+    format: json
+    filename: '{primary}.json'
+    view:
+      primary: title
+      fields: [title, order, draft]
+      sort: order
+      order: asc
+    fields:
+      - { name: title, label: Service name (navigation), type: string, required: true }
+      - { name: seoTitle, label: Search engine title, type: string, required: true }
+      - { name: description, label: Search engine description, type: text, required: true }
+      - { name: eyebrow, label: Small label above heading, type: string, required: true }
+      - { name: heading, label: Main heading, type: string, required: true }
+      - { name: headingAccent, label: Heading highlighted text, type: string, required: true }
+      - { name: intro, label: Introduction, type: text, required: true }
+      - { name: image, label: Page image, type: image, required: true }
+      - { name: imageAlt, label: Image description, type: string, required: true }
+      - name: analysisPoints
+        label: Analysis cards
+        type: object
+        list: true
+        fields:
+          - { name: title, label: Card title, type: string, required: true }
+          - { name: detail, label: Card description, type: text, required: true }
+      - { name: detailHeading, label: Detail section heading, type: string, required: true }
+      - { name: detailHeadingAccent, label: Detail heading highlighted text, type: string, required: true }
+      - { name: detail, label: Detail section text, type: text, required: true }
+      - { name: bullets, label: Investigation checklist, type: string, list: true }
+      - { name: imageCaption, label: Image caption, type: string, required: true }
+      - { name: order, label: Navigation order (lowest first), type: number, default: 0 }
+      - { name: draft, label: Draft (hide from website), type: boolean, default: true }
